@@ -23,6 +23,8 @@ jobs:
           key: ${{ runner.OS }}-npm-cache
           restore-keys: |
             ${{ runner.OS }}-npm-cache
+      - name: move to blog dir
+        run: cd ./blog
       - name: Install Dependencies
         run: npm install
       - name: Build
