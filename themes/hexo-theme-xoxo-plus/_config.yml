@@ -1,4 +1,3 @@
-
 # html lang
 language: zh-Hans
 
@@ -6,9 +5,9 @@ language: zh-Hans
 menu:
   home: /
   post:
-      categories: /categories
-      archives: /archives
-      tags: /tags
+    categories: /categories
+    archives: /archives
+    tags: /tags
   Papers: /paper
   project: /project
   activity: /activity
@@ -21,36 +20,35 @@ favicon: footer-logo.png
 logo:
 
 share:
-    show: false
-    img:
-    img_alt:
-    tip_text: test
+  show: false
+  img:
+  img_alt:
+  tip_text: test
 
 # stylesheets loaded in the <head>
 stylesheets:
-# - /css/normalize.css
-- //cdn.bootcss.com/pure/1.0.0/pure-min.css
-- /css/xoxo.css
+  # - /css/normalize.css
+  - //cdn.bootcss.com/pure/1.0.0/pure-min.css
+  - /css/xoxo.css
 
 # baidu url js push
 baidu_url_js_push: true
 
-
 # comment extend, support gialk, giscus
 # giscus https://giscus.app/zh-CN
 comment_extend:
-    gitalk:
-        enable: true
-        owner: Github username
-        repo: issue repo name
-        admin: github username
-        clientID: xxx
-        clientSecret: xxx
-    giscus:
-        enable: false
-        repo: data-repo
-        repoId: data-repo-id
-        dataCategoryId: data-category-id 
+  gitalk:
+    enable: true
+    owner: Github username
+    repo: issue repo name
+    admin: github username
+    clientID: xxx
+    clientSecret: xxx
+  giscus:
+    enable: false
+    repo: data-repo
+    repoId: data-repo-id
+    dataCategoryId: data-category-id
 
 # scripts loaded in the end of the body
 scripts:
@@ -69,21 +67,21 @@ links_url: /links
 
 # 友情链接
 links:
-  Fooying: https://www.fooying.com
+  Fooying(主题作责): https://www.fooying.com
 
 # project
 projects:
-  hexo-theme-xoxo-plus:
-    url: https://github.com/fooying/hexo-theme-xoxo-plus
-    descript: a hexo theme
+  # hexo-theme-xoxo-plus:
+  #   url: https://github.com/fooying/hexo-theme-xoxo-plus
+  #   descript: a hexo theme
 
 # activitys
 activitys:
-  腾讯课堂课程《漏洞攻防与企业安全实例讲解》:
-    date: 2018-07-10
-    url: https://ke.qq.com/course/342390?tuin=49018ed
-    type: 课程
+  # 腾讯课堂课程《漏洞攻防与企业安全实例讲解》:
+  #   date: 2018-07-10
+  #   url: https://ke.qq.com/course/342390?tuin=49018ed
+  #   type: 课程
 
 # papers
 papers:
-    原创翻译：给开发者的终极XSS防护备忘录: https://github.com/fooying/Papers/blob/master/给开发者的终极XSS防护备忘录.pdf
+  # 原创翻译：给开发者的终极XSS防护备忘录: https://github.com/fooying/Papers/blob/master/给开发者的终极XSS防护备忘录.pdf
