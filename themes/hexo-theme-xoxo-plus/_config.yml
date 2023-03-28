@@ -69,18 +69,17 @@ links_url: /links
 links:
   Fooying(主题作责): https://www.fooying.com
 # project
-# projects:
-# hexo-theme-xoxo-plus:
-#   url: https://github.com/fooying/hexo-theme-xoxo-plus
-#   descript: a hexo theme
+projects:
+  hexo-theme-xoxo-plus:
+    url: https://github.com/fooying/hexo-theme-xoxo-plus
+    descript: a hexo theme
 
 # activitys
-# activitys:
-# 腾讯课堂课程《漏洞攻防与企业安全实例讲解》:
-#   date: 2018-07-10
-#   url: https://ke.qq.com/course/342390?tuin=49018ed
-#   type: 课程
-
+activitys:
+  腾讯课堂课程《漏洞攻防与企业安全实例讲解》:
+    date: 2018-07-10
+    url: https://ke.qq.com/course/342390?tuin=49018ed
+    type: 课程
 # papers
-# papers:
-# 原创翻译：给开发者的终极XSS防护备忘录: https://github.com/fooying/Papers/blob/master/给开发者的终极XSS防护备忘录.pdf
+papers:
+  原创翻译：给开发者的终极XSS防护备忘录: https://github.com/fooying/Papers/blob/master/给开发者的终极XSS防护备忘录.pdf
