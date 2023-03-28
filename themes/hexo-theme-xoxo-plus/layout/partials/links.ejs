@@ -1,5 +1,6 @@
 <section class="post page archives">
   <h3 class="archive-year-wrap"><%= __('links')%></h3>
+  <% if(theme.links) { %>
   <div class="archives">
     <% Object.keys(theme.links).forEach(function(key) { %>
     <div class="archive">
@@ -16,10 +17,9 @@
         >
       </a>
     </div>
-    <% }); %>
+    <% }); %> <% } %>
     <p style="color: #999; font-size: 14px; margin-top: 30px">
       不定期清理访问不了的链接，误删请联系我.申请友链请发邮件至
-
       <a href="mailto:dgjungle_c@163.com"> dgjungle_c@163.com </a>
     </p>
   </div>
