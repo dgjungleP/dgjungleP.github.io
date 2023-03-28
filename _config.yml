@@ -105,3 +105,16 @@ deploy:
   type: "git"
   repo: https://github.com/dgjungleP/dgjungleP.github.io.git
   branch: "gh-pages"
+
+# Tags
+
+easy_tags_plugin:
+  enable: true
+  tag_name_case: 1
+  sort_ignore_case: true
+# # search
+# search:
+#   path: search.xml
+#   field: post
+#   content: true
+#   template: ./search.xml
