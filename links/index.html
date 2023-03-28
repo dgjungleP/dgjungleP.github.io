@@ -109,7 +109,37 @@
   </header>
   <div class="post-content">
     
-        
+        <section class="post page archives">
+  <h3 class="archive-year-wrap">友情链接</h3>
+  <div class="archives">
+    
+      <div class="archive">
+        <a class="post-go" target="_blank" style="color:#202020" href="https://www.fooying.com">
+          Fooying(主题作责)&nbsp;&nbsp;<span class="date" style="text-transform:none;font-size:14px;">https://www.fooying.com</span>
+        </a>
+      </div>
+    
+    <p style="color:#999;font-size:14px;margin-top: 30px;">不定期清理访问不了的链接，误删请联系我.申请友链请发邮件至f00y1n9+gmail.com</p>
+  </div>
+</section>
+
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <div id="gitalk-container"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script type="text/javascript">
+        var gitalk = new Gitalk({
+            clientID: 'xxx',
+            clientSecret: 'xxx',
+            id: window.location.pathname,
+            repo: 'issue repo name',
+            owner: 'Github username',
+            admin: 'github username'
+        })
+        gitalk.render('gitalk-container')
+    </script>
+
+
+
       
   </div>
 </article>
