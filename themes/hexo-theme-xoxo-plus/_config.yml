@@ -40,17 +40,17 @@ baidu_url_js_push: true
 # giscus https://giscus.app/zh-CN
 comment_extend:
   gitalk:
-    enable: true
+    enable: false
     owner: Github username
     repo: issue repo name
     admin: github username
     clientID: xxx
     clientSecret: xxx
   giscus:
-    enable: false
-    repo: data-repo
-    repoId: data-repo-id
-    dataCategoryId: data-category-id
+    enable: true
+    repo: "dgjungleP/communicate"
+    repoId: "R_kgDOJPoMuA"
+    dataCategoryId: "DIC_kwDOJPoMuM4CVXdN"
 
 # scripts loaded in the end of the body
 scripts:
