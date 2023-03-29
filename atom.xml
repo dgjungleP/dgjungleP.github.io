@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>In Jungle</title>
+  <icon>https://dgjunglep.github.io/icon.png</icon>
+  <subtitle>没有什么是生来就有的</subtitle>
+  <link href="https://dgjunglep.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://dgjunglep.github.io/"/>
+  <updated>2023-03-29T10:00:12.557Z</updated>
+  <id>https://dgjunglep.github.io/</id>
+  
+  <author>
+    <name>Jungle Deng</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>开始</title>
+    <link href="https://dgjunglep.github.io/2023/03/28/test-layout/"/>
+    <id>https://dgjunglep.github.io/2023/03/28/test-layout/</id>
+    <published>2023-03-28T21:44:18.000Z</published>
+    <updated>2023-03-29T10:00:12.557Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;现在</summary>
+        
+      
+    
+    
+    
+    <category term="生活" scheme="https://dgjunglep.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="生活随记" scheme="https://dgjunglep.github.io/tags/%E7%94%9F%E6%B4%BB%E9%9A%8F%E8%AE%B0/"/>
+    
+  </entry>
+  
+</feed>
