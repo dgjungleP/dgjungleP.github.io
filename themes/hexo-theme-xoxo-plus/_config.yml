@@ -14,7 +14,6 @@ menu:
   activity: /activity
   search: /search
   about: /about
-  # about: http://www.fooying.com
   # rss: /atom.xml
 
 # Miscelaneous
@@ -62,14 +61,14 @@ show_excerpt: true
 show_date: true
 
 #footer
-index_page: http://www.fooying.com
-main_site: http://www.fooying.com
-github: https://github.com/fooying
+index_page: https://dgjunglep.github.io/
+main_site: https://dgjunglep.github.io/
+github: https://github.com/dgjungleP
 links_url: /links
 
 # 友情链接
 links:
-  Fooying(主题作责): https://www.fooying.com
+  Fooying(主题作者): https://www.fooying.com
 # project
 projects:
   # hexo-theme-xoxo-plus:
