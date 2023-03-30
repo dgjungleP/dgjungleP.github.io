@@ -77,10 +77,10 @@ projects:
 
 # activitys
 activitys:
-  # 腾讯课堂课程《漏洞攻防与企业安全实例讲解》:
-  #   date: 2018-07-10
-  #   url: https://ke.qq.com/course/342390?tuin=49018ed
-  #   type: 课程
+  100DaysCode:
+    date: 2023-03-30
+    # url: https://ke.qq.com/course/342390?tuin=49018ed
+    type: 挑战
 # papers
 papers:
   # 原创翻译：给开发者的终极XSS防护备忘录: https://github.com/fooying/Papers/blob/master/给开发者的终极XSS防护备忘录.pdf
