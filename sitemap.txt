@@ -11,5 +11,6 @@ https://dgjunglep.github.io/tags/index.html
 https://dgjunglep.github.io/
 https://dgjunglep.github.io/tags/%E7%94%9F%E6%B4%BB%E9%9A%8F%E8%AE%B0/
 https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/
+https://dgjunglep.github.io/tags/rxjava/
 https://dgjunglep.github.io/categories/%E7%94%9F%E6%B4%BB/
 https://dgjunglep.github.io/categories/%E6%8C%91%E6%88%98/
