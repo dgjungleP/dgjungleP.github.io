@@ -49,7 +49,7 @@ comment_extend:
     enable: true
     repo: "dgjungleP/communicate"
     repoId: "R_kgDOJPoMuA"
-    dataCategoryId: "DIC_kwDOJPoMuM4CVXdN"
+    dataCategoryId: "DIC_kwDOJPoMuM4CVXdO"
 
 # scripts loaded in the end of the body
 scripts:
