@@ -5,4 +5,4 @@ type: "about"
 ---
 
 Hello Jungle is here
-![Kata](https://www.codewars.com/users/dgjungleP/badges/micro)
+![Kata](https://www.codewars.com/users/dgjungleP/badges/large)
