@@ -1,5 +1,6 @@
 https://dgjunglep.github.io/2023/03/28/test-layout/
 https://dgjunglep.github.io/2023/03/30/100dayscode-1/
+https://dgjunglep.github.io/2023/03/31/100dayscode-2/
 https://dgjunglep.github.io/about/index.html
 https://dgjunglep.github.io/activity/index.html
 https://dgjunglep.github.io/categories/index.html
@@ -12,5 +13,6 @@ https://dgjunglep.github.io/
 https://dgjunglep.github.io/tags/%E7%94%9F%E6%B4%BB%E9%9A%8F%E8%AE%B0/
 https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/
 https://dgjunglep.github.io/tags/rxjava/
+https://dgjunglep.github.io/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/
 https://dgjunglep.github.io/categories/%E7%94%9F%E6%B4%BB/
 https://dgjunglep.github.io/categories/%E6%8C%91%E6%88%98/

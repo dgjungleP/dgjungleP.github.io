@@ -6,7 +6,7 @@
   <link href="https://dgjunglep.github.io/atom.xml" rel="self"/>
   
   <link href="https://dgjunglep.github.io/"/>
-  <updated>2023-03-31T07:15:47.398Z</updated>
+  <updated>2023-03-31T15:13:14.949Z</updated>
   <id>https://dgjunglep.github.io/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>100DaysCode-Day02 再看RxJava:Subscribe</title>
+    <link href="https://dgjunglep.github.io/2023/03/31/100dayscode-2/"/>
+    <id>https://dgjunglep.github.io/2023/03/31/100dayscode-2/</id>
+    <published>2023-03-31T22:17:04.000Z</published>
+    <updated>2023-03-31T15:13:14.949Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在昨天的使用我们，我们是用了最简单的 RxJava 的模型，在这里我们回顾一下我们是如何订阅了消息&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="挑战" scheme="https://dgjunglep.github.io/categories/%E6%8C%91%E6%88%98/"/>
+    
+    
+    <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
+    
+    <category term="rxjava" scheme="https://dgjunglep.github.io/tags/rxjava/"/>
+    
+    <category term="小知识" scheme="https://dgjunglep.github.io/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>100DaysCode-Day01 再看RxJava:Hello Flowable</title>
     <link href="https://dgjunglep.github.io/2023/03/30/100dayscode-1/"/>
     <id>https://dgjunglep.github.io/2023/03/30/100dayscode-1/</id>
     <published>2023-03-30T11:21:11.000Z</published>
-    <updated>2023-03-31T07:15:47.398Z</updated>
+    <updated>2023-03-31T15:13:14.949Z</updated>
     
     
       
@@ -48,7 +78,7 @@
     <link href="https://dgjunglep.github.io/2023/03/28/test-layout/"/>
     <id>https://dgjunglep.github.io/2023/03/28/test-layout/</id>
     <published>2023-03-28T21:44:18.000Z</published>
-    <updated>2023-03-31T07:15:47.398Z</updated>
+    <updated>2023-03-31T15:13:14.949Z</updated>
     
     
       
