@@ -1,0 +1,7 @@
+.post img {
+  text-align: center;
+  margin: 0 auto;
+  display: inline;
+  max-width: 20%;
+  max-height: 1024px;
+}

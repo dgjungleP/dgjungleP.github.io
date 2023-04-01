@@ -31,6 +31,7 @@ stylesheets:
   # - /css/normalize.css
   - //cdn.bootcss.com/pure/1.0.0/pure-min.css
   - /css/xoxo.css
+  - /css/about.css
 
 # baidu url js push
 baidu_url_js_push: true
