@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>Day05 再看RxJava:创建Flowable（二）</title>
+      <link href="/2023/04/03/100dayscode-5/"/>
+      <url>/2023/04/03/100dayscode-5/</url>
+      
+        <content type="html"><![CDATA[<pre><code>上次我们制作了简单的`心跳包`，那除了`心跳`以外我们还能做些什么呢。在对创建方法的探索中，我们又发现了一个带有类似`interval`方法签名的一个方法</code></pre><h3 id="timer"><a href="#timer" class="headerlink" title="timer"></a>timer</h3><p>其最简单的方法签名为：</p><ul><li><code>public static Flowable&lt;Long&gt; timer(long delay, @NonNull TimeUnit unit)</code><br>从其方法的说明文档中，我们可以看到它的声明，是可以在延迟一定的时间后，发送一个<code>0L</code>供给下游消费</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">generateFlowable</span><span class="params">()</span> &#123;</span><br><span class="line">    Flowable&lt;Long&gt; flowable = Flowable.timer(<span class="number">10</span>, TimeUnit.SECONDS);</span><br><span class="line">    flowable.subscribe(<span class="keyword">new</span> <span class="title class_">ConsoleSubscribe</span>());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>我们同样去简单的使用一下，我们只得到了一句注册成功的打印：</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thread:【main】 在 2023-04-03T13:09:49.346Z 开启注册消费！</span><br></pre></td></tr></table></figure><p>那么加上死循环之后，我们再次运行：</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Thread:【main】 在 2023-04-03T13:11:26.225Z 开启注册消费！</span><br><span class="line">Thread:【RxComputationThreadPool-1】 在 2023-04-03T13:11:36.236Z 消费了 data【0】</span><br><span class="line">Thread:【RxComputationThreadPool-1】 在 2023-04-03T13:11:36.238Z 完成了消费</span><br></pre></td></tr></table></figure><p>我们得到了以上结果，那么这种结合上一次的<code>interval</code>我们貌似得到了前端同学经常使用的两个工具，一个<code>定时任务</code>和一个<code>延迟任务</code>，那么有了这两个方便的工具我们能用来做一些什么有趣的东西呢？</p><p>相关代码地址:<a href="https://github.com/dgjungleP/100days-code-round1">100daysCode</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 挑战 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 挑战 </tag>
+            
+            <tag> rxjava </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Day04 再看RxJava:创建Flowable（一）</title>
+      <link href="/2023/04/02/100dayscode-4/"/>
+      <url>/2023/04/02/100dayscode-4/</url>
+      
+        <content type="html"><![CDATA[<pre><code>在探索能够用已学习的知识能够用来做些什么东西的时候，本来想着来制作一个`心跳器`的，却发现还没有很好的办法去创建一个`心跳`，本着对于心跳的理解，所以心跳信号应该是用`Flowable`这种消息发布体来进行，提供所以，又得去探索一下关于`Flowable`的一些操作知识。</code></pre><blockquote><p>在第一次创建<code>Flowable</code>的时候看到他有很多的静态方法，那么就浅看一下有没有适合<code>心跳</code>的创建方式</p></blockquote><h3 id="interval"><a href="#interval" class="headerlink" title="interval"></a>interval</h3><p>我们找到他看上去最简单的方法签名：</p><ul><li><code>public static Flowable&lt;Long&gt; interval(long period, @NonNull TimeUnit unit)</code><br>结合到方法的说明文档。我们知道这个方法可以让我们创建一个不断输出有序数字的发射器。</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">generateFlowable</span><span class="params">()</span> &#123;</span><br><span class="line">    Flowable&lt;Long&gt; intervalFlowable = Flowable.interval(<span class="number">1</span>, TimeUnit.SECONDS);</span><br><span class="line"></span><br><span class="line">    intervalFlowable.subscribe(<span class="keyword">new</span> <span class="title class_">ConsoleSubscribe</span>());</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>但是我们运行这段代码，只得到了一串打印信息（<code>ConsoleSubscribe</code>是我编写的一个会打印出模板信息<code>Thead - Time - Data</code>的<code>Subscribe</code>实现）:</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thread:【main】 在 2023-04-03T12:54:23.243Z 开启注册消费！</span><br></pre></td></tr></table></figure><p>所以可以看到我们确实注册成功了，但是并没有执行消费。我们猜测是不是因为消息的传递不是在<code>main</code>线程执行的，所以我们添加一个死循环，来监控一下，最后得到了我们预取的打印数据：</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Thread:【main】 在 2023-04-03T12:57:13.927Z 开启注册消费！</span><br><span class="line">Thread:【RxComputationThreadPool-1】 在 2023-04-03T12:57:14.937Z 消费了 data【0】</span><br><span class="line">Thread:【RxComputationThreadPool-1】 在 2023-04-03T12:57:15.942Z 消费了 data【1】</span><br><span class="line">Thread:【RxComputationThreadPool-1】 在 2023-04-03T12:57:16.951Z 消费了 data【2】</span><br><span class="line">Thread:【RxComputationThreadPool-1】 在 2023-04-03T12:57:17.942Z 消费了 data【3】</span><br></pre></td></tr></table></figure><p>确实是在一个线程池中进行了数据消费。那么自此我们的一个微型的<code>心跳</code>就制作完成了，目前只会进行简单的打印（取决于你对<code>Subscribe</code>的具体实现）</p><p>相关代码地址:<a href="https://github.com/dgjungleP/100days-code-round1">100daysCode</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 挑战 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 挑战 </tag>
+            
+            <tag> rxjava </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>100dayscode-3 再看RxJava:Scheduler</title>
       <link href="/2023/04/01/100dayscode-3/"/>
       <url>/2023/04/01/100dayscode-3/</url>

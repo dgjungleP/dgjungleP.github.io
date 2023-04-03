@@ -6,7 +6,7 @@
   <link href="https://dgjunglep.github.io/atom.xml" rel="self"/>
   
   <link href="https://dgjunglep.github.io/"/>
-  <updated>2023-04-03T13:03:13.222Z</updated>
+  <updated>2023-04-03T13:14:53.448Z</updated>
   <id>https://dgjunglep.github.io/</id>
   
   <author>
@@ -17,11 +17,67 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Day05 再看RxJava:创建Flowable（二）</title>
+    <link href="https://dgjunglep.github.io/2023/04/03/100dayscode-5/"/>
+    <id>https://dgjunglep.github.io/2023/04/03/100dayscode-5/</id>
+    <published>2023-04-03T21:03:08.000Z</published>
+    <updated>2023-04-03T13:14:53.448Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;pre&gt;&lt;code&gt;上次我们制作了简单的`心跳包`，那除了`心跳`以外我们还能做些什么呢。在对创建方法的探索中，我们又发现了一个带有类似`interval`方法签名的一个方法
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;timer&quot;&gt;&lt;a href=&quot;#timer&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="挑战" scheme="https://dgjunglep.github.io/categories/%E6%8C%91%E6%88%98/"/>
+    
+    
+    <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
+    
+    <category term="rxjava" scheme="https://dgjunglep.github.io/tags/rxjava/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Day04 再看RxJava:创建Flowable（一）</title>
+    <link href="https://dgjunglep.github.io/2023/04/02/100dayscode-4/"/>
+    <id>https://dgjunglep.github.io/2023/04/02/100dayscode-4/</id>
+    <published>2023-04-02T21:01:05.000Z</published>
+    <updated>2023-04-03T13:14:53.448Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;pre&gt;&lt;code&gt;在探索能够用已学习的知识能够用来做些什么东西的时候，本来想着来制作一个`心跳器`的，却发现还没有很好的办法去创建一个`心跳`，本着对于心跳的理解，所以心跳信号应该是用`Flowable`这种消息发布体来进行，提供所以，又得去探索一下关于`Flowable`的</summary>
+        
+      
+    
+    
+    
+    <category term="挑战" scheme="https://dgjunglep.github.io/categories/%E6%8C%91%E6%88%98/"/>
+    
+    
+    <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
+    
+    <category term="rxjava" scheme="https://dgjunglep.github.io/tags/rxjava/"/>
+    
+  </entry>
+  
+  <entry>
     <title>100dayscode-3 再看RxJava:Scheduler</title>
     <link href="https://dgjunglep.github.io/2023/04/01/100dayscode-3/"/>
     <id>https://dgjunglep.github.io/2023/04/01/100dayscode-3/</id>
     <published>2023-04-01T21:27:52.000Z</published>
-    <updated>2023-04-03T13:03:13.222Z</updated>
+    <updated>2023-04-03T13:14:53.448Z</updated>
     
     
       
@@ -49,7 +105,7 @@
     <link href="https://dgjunglep.github.io/2023/03/31/100dayscode-2/"/>
     <id>https://dgjunglep.github.io/2023/03/31/100dayscode-2/</id>
     <published>2023-03-31T22:17:04.000Z</published>
-    <updated>2023-04-03T13:03:13.222Z</updated>
+    <updated>2023-04-03T13:14:53.448Z</updated>
     
     
       
@@ -79,7 +135,7 @@
     <link href="https://dgjunglep.github.io/2023/03/30/100dayscode-1/"/>
     <id>https://dgjunglep.github.io/2023/03/30/100dayscode-1/</id>
     <published>2023-03-30T11:21:11.000Z</published>
-    <updated>2023-04-03T13:03:13.222Z</updated>
+    <updated>2023-04-03T13:14:53.448Z</updated>
     
     
       
@@ -106,7 +162,7 @@
     <link href="https://dgjunglep.github.io/2023/03/28/test-layout/"/>
     <id>https://dgjunglep.github.io/2023/03/28/test-layout/</id>
     <published>2023-03-28T21:44:18.000Z</published>
-    <updated>2023-04-03T13:03:13.222Z</updated>
+    <updated>2023-04-03T13:14:53.448Z</updated>
     
     
       
