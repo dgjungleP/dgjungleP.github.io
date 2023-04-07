@@ -6,7 +6,7 @@
   <link href="https://dgjunglep.github.io/atom.xml" rel="self"/>
   
   <link href="https://dgjunglep.github.io/"/>
-  <updated>2023-04-04T15:04:31.436Z</updated>
+  <updated>2023-04-07T14:48:59.807Z</updated>
   <id>https://dgjunglep.github.io/</id>
   
   <author>
@@ -17,11 +17,101 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Day09 再看RxJava:转化Flowable（二）</title>
+    <link href="https://dgjunglep.github.io/2023/04/07/100dayscode-9/"/>
+    <id>https://dgjunglep.github.io/2023/04/07/100dayscode-9/</id>
+    <published>2023-04-07T22:29:35.000Z</published>
+    <updated>2023-04-07T14:48:59.807Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;pre&gt;&lt;code&gt;在之前的操作中，我们经常需要为每一个Flowable进行模拟延迟的时候，都使用了一个`map`的操作符，那么今
+天，我们就来看一下这个map到底可以为我们做些什么。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;map&quot;&gt;&lt;a href=&quot;#map&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="挑战" scheme="https://dgjunglep.github.io/categories/%E6%8C%91%E6%88%98/"/>
+    
+    
+    <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
+    
+    <category term="rxjava" scheme="https://dgjunglep.github.io/tags/rxjava/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>再看RxJava:转化Flowable（一）</title>
+    <link href="https://dgjunglep.github.io/2023/04/06/100dayscode-8/"/>
+    <id>https://dgjunglep.github.io/2023/04/06/100dayscode-8/</id>
+    <published>2023-04-06T22:01:55.000Z</published>
+    <updated>2023-04-07T14:48:59.807Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;pre&gt;&lt;code&gt;在学习异步和并行处理之前，由于业务原因，我同时又遇到了一个问题，
+当我有很多数据要进行处理时，由于数据量过大，内存可能无法支持到这么多数据，这个时候我需要对数据
+进行分组批处理，那么这个时候`RxJava`能够怎么样轻易的帮助我们完成这项工作呢
+&lt;/code</summary>
+        
+      
+    
+    
+    
+    <category term="挑战" scheme="https://dgjunglep.github.io/categories/%E6%8C%91%E6%88%98/"/>
+    
+    
+    <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
+    
+    <category term="rxjava" scheme="https://dgjunglep.github.io/tags/rxjava/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>100DaysCode-Day04 再看RxJava:创建Flowable（四）</title>
+    <link href="https://dgjunglep.github.io/2023/04/05/100dayscode-7/"/>
+    <id>https://dgjunglep.github.io/2023/04/05/100dayscode-7/</id>
+    <published>2023-04-05T21:27:31.000Z</published>
+    <updated>2023-04-07T14:48:59.807Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;pre&gt;&lt;code&gt;上一次我浅用了以下merge方法，它确实可以把多个`Flowable`聚合在一起，但是却不能满足我们预设的要求，
+将多个耗时操作异步执行，并且，并利用其结果去组装我们想要的下游数据，那么接下来，我们再看一下另一
+个能够组合`Flowable`的创建方式
+&lt;/</summary>
+        
+      
+    
+    
+    
+    <category term="挑战" scheme="https://dgjunglep.github.io/categories/%E6%8C%91%E6%88%98/"/>
+    
+    
+    <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
+    
+    <category term="rxjava" scheme="https://dgjunglep.github.io/tags/rxjava/"/>
+    
+  </entry>
+  
+  <entry>
     <title>100DaysCode-Day04 再看RxJava:创建Flowable（三）</title>
     <link href="https://dgjunglep.github.io/2023/04/04/100dayscode-6/"/>
     <id>https://dgjunglep.github.io/2023/04/04/100dayscode-6/</id>
     <published>2023-04-04T22:07:26.000Z</published>
-    <updated>2023-04-04T15:04:31.436Z</updated>
+    <updated>2023-04-07T14:48:59.807Z</updated>
     
     
       
@@ -50,7 +140,7 @@
     <link href="https://dgjunglep.github.io/2023/04/03/100dayscode-5/"/>
     <id>https://dgjunglep.github.io/2023/04/03/100dayscode-5/</id>
     <published>2023-04-03T21:03:08.000Z</published>
-    <updated>2023-04-04T15:04:31.436Z</updated>
+    <updated>2023-04-07T14:48:59.807Z</updated>
     
     
       
@@ -80,7 +170,7 @@
     <link href="https://dgjunglep.github.io/2023/04/02/100dayscode-4/"/>
     <id>https://dgjunglep.github.io/2023/04/02/100dayscode-4/</id>
     <published>2023-04-02T21:01:05.000Z</published>
-    <updated>2023-04-04T15:04:31.436Z</updated>
+    <updated>2023-04-07T14:48:59.807Z</updated>
     
     
       
@@ -109,7 +199,7 @@
     <link href="https://dgjunglep.github.io/2023/04/01/100dayscode-3/"/>
     <id>https://dgjunglep.github.io/2023/04/01/100dayscode-3/</id>
     <published>2023-04-01T21:27:52.000Z</published>
-    <updated>2023-04-04T15:04:31.436Z</updated>
+    <updated>2023-04-07T14:48:59.807Z</updated>
     
     
       
@@ -137,7 +227,7 @@
     <link href="https://dgjunglep.github.io/2023/03/31/100dayscode-2/"/>
     <id>https://dgjunglep.github.io/2023/03/31/100dayscode-2/</id>
     <published>2023-03-31T22:17:04.000Z</published>
-    <updated>2023-04-04T15:04:31.436Z</updated>
+    <updated>2023-04-07T14:48:59.807Z</updated>
     
     
       
@@ -167,7 +257,7 @@
     <link href="https://dgjunglep.github.io/2023/03/30/100dayscode-1/"/>
     <id>https://dgjunglep.github.io/2023/03/30/100dayscode-1/</id>
     <published>2023-03-30T11:21:11.000Z</published>
-    <updated>2023-04-04T15:04:31.436Z</updated>
+    <updated>2023-04-07T14:48:59.807Z</updated>
     
     
       
@@ -194,7 +284,7 @@
     <link href="https://dgjunglep.github.io/2023/03/28/test-layout/"/>
     <id>https://dgjunglep.github.io/2023/03/28/test-layout/</id>
     <published>2023-03-28T21:44:18.000Z</published>
-    <updated>2023-04-04T15:04:31.436Z</updated>
+    <updated>2023-04-07T14:48:59.807Z</updated>
     
     
       
