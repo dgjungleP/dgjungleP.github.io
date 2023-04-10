@@ -11,13 +11,13 @@
   <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
 
   
-  <meta name="keywords" content="挑战,rxjava," />
+  <meta name="keywords" content="挑战,rxjava,实践,jclient," />
    
   <meta name="description" content="记录一些我本该记录的东西" />
    
   <link rel="icon" type="image/x-icon" href="/images/footer-logo.png" />
   
-  <title>100DaysCode-Day05 再看RxJava:创建Flowable（二） [In Jungle ]</title>
+  <title>100DaysCode-Day11 再看RxJava:实践:JClient（二） [In Jungle ]</title>
   
   <!-- stylesheets list from config.yml -->
   
@@ -108,19 +108,19 @@
   <article class="post" id="post">
     <header class="post-header text-center">
       <h1 class="title">
-        100DaysCode-Day05 再看RxJava:创建Flowable（二）
+        100DaysCode-Day11 再看RxJava:实践:JClient（二）
       </h1>
       <span>
         
-        <time class="time" datetime="2023-04-03T21:03:08.000Z">
-        2023-04-03
+        <time class="time" datetime="2023-04-09T11:36:17.000Z">
+        2023-04-09
       </time>
         
       </span>
       <span class="slash">/</span>
       <span class="post-meta">
       <span class="post-tags">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rxjava/" rel="tag">rxjava</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8C%91%E6%88%98/" rel="tag">挑战</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jclient/" rel="tag">jclient</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rxjava/" rel="tag">rxjava</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8C%91%E6%88%98/" rel="tag">挑战</a></li></ul>
       </span>
     </span>
       <span class="slash">/</span>
@@ -128,27 +128,37 @@
       <span id="busuanzi_value_page_pv"></span> 点击
     </span>
       <span class="slash">/</span>
-      <span class="read">阅读耗时 2 分钟</span>
+      <span class="read">阅读耗时 4 分钟</span>
     </header>
 
     <div class="post-content">
-      <pre><code>上次我们制作了简单的`心跳包`，那除了`心跳`以外我们还能做些什么呢。在对创建方法的探索中，我们又发现了一个带有
-类似`interval`方法签名的一个方法
+      <h2 id="实现：-失败重试"><a href="#实现：-失败重试" class="headerlink" title="实现： 失败重试"></a>实现： 失败重试</h2><pre><code>接上次的案例，我们需要构建一个失败请求的后的重试方法。
 </code></pre>
-<h3 id="timer"><a href="#timer" class="headerlink" title="timer"></a>timer</h3><p>其最简单的方法签名为：</p>
-<ul>
-<li><code>public static Flowable&lt;Long&gt; timer(long delay, @NonNull TimeUnit unit)</code><br>从其方法的说明文档中，我们可以看到它的声明，是可以在延迟一定的时间后，发送一个<code>0L</code>供给下游消费</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">generateFlowable</span><span class="params">()</span> &#123;</span><br><span class="line">    Flowable&lt;Long&gt; flowable = Flowable.timer(<span class="number">10</span>, TimeUnit.SECONDS);</span><br><span class="line">    flowable.subscribe(<span class="keyword">new</span> <span class="title class_">ConsoleSubscribe</span>());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>很简单我们能想到的方法声明：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Single&lt;?&gt; retryableDoServer(Server server, Long times)</span><br></pre></td></tr></table></figure>
 
-<p>我们同样去简单的使用一下，我们只得到了一句注册成功的打印：</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thread:【main】 在 2023-04-03T13:09:49.346Z 开启注册消费！</span><br></pre></td></tr></table></figure>
+<p>他的具体实现也很简单，因为我们能够在<code>RxJava</code>中找到一个我们还没有学习过的转换方法<code>retry</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Single&lt;?&gt; retryableDoServer(Server server, Long times) &#123;</span><br><span class="line">    <span class="keyword">return</span> server.service(client).retry(times);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>那么加上死循环之后，我们再次运行：</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Thread:【main】 在 2023-04-03T13:11:26.225Z 开启注册消费！</span><br><span class="line">Thread:【RxComputationThreadPool-1】 在 2023-04-03T13:11:36.236Z 消费了 data【0】</span><br><span class="line">Thread:【RxComputationThreadPool-1】 在 2023-04-03T13:11:36.238Z 完成了消费</span><br></pre></td></tr></table></figure>
+<p>至此他的重试方式我们就完成了，那么接下来我们对这个方法进行测试。</p>
+<pre><code>我们会使用一个OPEN Api来帮助我们模拟网络请求
+</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Server <span class="title function_">makeService</span><span class="params">(Integer time)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> client -&gt; client</span><br><span class="line">            .getAbs(<span class="string">&quot;http://httpstat.us/200?sleep=&quot;</span> + time)</span><br><span class="line">            .rxSend()</span><br><span class="line">            .doOnSuccess(data -&gt; System.out.println(<span class="string">&quot; &quot;</span> + time + <span class="string">&quot; is finish at&quot;</span> + <span class="keyword">new</span> <span class="title class_">Date</span>()))</span><br><span class="line">            .timeout(<span class="number">900</span>, TimeUnit.MILLISECONDS)</span><br><span class="line">            .doOnError(data -&gt; System.err.println(Thread.currentThread().getName() + <span class="string">&quot;:&quot;</span> + data))</span><br><span class="line">            .map(data -&gt; data.bodyAsString() + <span class="string">&quot; with &quot;</span> + time + <span class="string">&quot; at&quot;</span> + <span class="keyword">new</span> <span class="title class_">Date</span>());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>我们得到了以上结果，那么这种结合上一次的<code>interval</code>我们貌似得到了前端同学经常使用的两个工具，一个<code>定时任务</code>和一个<code>延迟任务</code>，那么有了这两个方便的工具我们能用来做一些什么有趣的东西呢？</p>
-<p>相关代码地址:<br><a target="_blank" rel="noopener" href="https://github.com/dgjungleP/100days-code-round1">100daysCode</a></p>
+<p>我们在里面加入了一个超时，当我们请求等待的时间超过阈值的时候，这个请求就会失败，我们先试一下如果我们不超过等待时间</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testRetry</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">    <span class="type">JClient</span> <span class="variable">client</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JClient</span>();</span><br><span class="line">    Single&lt;?&gt; single = client.retryableDoServer(makeService(<span class="number">500</span>), <span class="number">3L</span>);</span><br><span class="line">    <span class="type">Subscription</span> <span class="variable">subscribe</span> <span class="operator">=</span> single</span><br><span class="line">            .subscribe(System.out::println, System.err::println);</span><br><span class="line">    <span class="keyword">while</span> (!subscribe.isUnsubscribed()) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们会得到以下结果</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RxComputationScheduler-1:java.util.concurrent.TimeoutException</span><br><span class="line">RxComputationScheduler-2:java.util.concurrent.TimeoutException</span><br><span class="line"> 500 is finish atMon Apr 10 22:50:23 CST 2023</span><br><span class="line">200 OK with 500 atMon Apr 10 22:50:23 CST 2023</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，虽然我们的请求延迟并没有超过等待时间，但是它还是给我们报错了，并且帮我们重试了 2 次后成功了，这样变相的证明了我们的重试的成功的，至于报错信息，有可能是因为我们用的这个 OPEN API 不太稳定的原因。那么当我们把请求等待时间改变成 2000ms：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Single&lt;?&gt; single = client.retryableDoServer(makeService(<span class="number">2000</span>), <span class="number">3L</span>);</span><br></pre></td></tr></table></figure>
+
+<p>我们会得到以下结果</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RxComputationScheduler-1:java.util.concurrent.TimeoutException</span><br><span class="line">RxComputationScheduler-2:java.util.concurrent.TimeoutException</span><br><span class="line">RxComputationScheduler-3:java.util.concurrent.TimeoutException</span><br><span class="line">RxComputationScheduler-4:java.util.concurrent.TimeoutException</span><br><span class="line">java.util.concurrent.TimeoutException</span><br></pre></td></tr></table></figure>
+
+<p>可以看到<code>RxJava</code>除开我们自己请求的一次以外，确实帮我们重试了 3 次，符合我们的预期，并且在第三次重试失败之后，结束了当前的信息消费。<br>至此我们的一个多功能的 Client 就完成了，后期如果还有其他的实现，或者补充修改的地方我们会继续持续更新。</p>
+<p>相关代码地址:<br><a target="_blank" rel="noopener" href="https://github.com/dgjungleP/100days-code-round1">100daysCode</a><br><a target="_blank" rel="noopener" href="https://github.com/dgjungleP/Bakend_demo/tree/main/jclient">JClient</a></p>
 
     </div>
 
@@ -157,7 +167,7 @@
     
   <div id="toc" class="toc-article">
     <strong class="toc-title">Posts</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#timer"><span class="toc-text">timer</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%EF%BC%9A-%E5%A4%B1%E8%B4%A5%E9%87%8D%E8%AF%95"><span class="toc-text">实现： 失败重试</span></a></li></ol>
   </div>
 
 
@@ -175,16 +185,16 @@
       <div class="post-nav-item post-nav-next">
         
           <span>〈 </span>
-          <a href="/2023/04/02/100dayscode-4/" rel="next" title="100DaysCode-Day04 再看RxJava:创建Flowable（一）">
-          100DaysCode-Day04 再看RxJava:创建Flowable（一）
+          <a href="/2023/04/08/100dayscode-10/" rel="next" title="100DaysCode-Day10 再看RxJava:实践:JClient（一）">
+          100DaysCode-Day10 再看RxJava:实践:JClient（一）
           </a>
         
       </div>
   
       <div class="post-nav-item post-nav-prev">
           
-          <a href="/2023/04/04/100dayscode-6/" rel="prev" title="100DaysCode-Day06 再看RxJava:创建Flowable（三）">
-            100DaysCode-Day06 再看RxJava:创建Flowable（三）
+          <a href="/2023/04/10/100dayscode-12/" rel="prev" title="再看RxJava:转化Flowable（三） retry">
+            再看RxJava:转化Flowable（三） retry
           </a>
           <span>〉</span>
         

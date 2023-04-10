@@ -6,7 +6,7 @@
   <link href="https://dgjunglep.github.io/atom.xml" rel="self"/>
   
   <link href="https://dgjunglep.github.io/"/>
-  <updated>2023-04-07T14:53:14.908Z</updated>
+  <updated>2023-04-10T15:17:38.306Z</updated>
   <id>https://dgjunglep.github.io/</id>
   
   <author>
@@ -17,11 +17,106 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>再看RxJava:转化Flowable（三） retry</title>
+    <link href="https://dgjunglep.github.io/2023/04/10/100dayscode-12/"/>
+    <id>https://dgjunglep.github.io/2023/04/10/100dayscode-12/</id>
+    <published>2023-04-10T11:36:19.000Z</published>
+    <updated>2023-04-10T15:17:38.306Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;pre&gt;&lt;code&gt;在上次的实例中，我们已经使用过了`retry`,那么我们今天来看一下这个操作到底在帮助我们做些什么事情
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;我们很轻易的就能创造一个错误&lt;/p&gt;
+&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="挑战" scheme="https://dgjunglep.github.io/categories/%E6%8C%91%E6%88%98/"/>
+    
+    
+    <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
+    
+    <category term="rxjava" scheme="https://dgjunglep.github.io/tags/rxjava/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>100DaysCode-Day11 再看RxJava:实践:JClient（二）</title>
+    <link href="https://dgjunglep.github.io/2023/04/09/100dayscode-11/"/>
+    <id>https://dgjunglep.github.io/2023/04/09/100dayscode-11/</id>
+    <published>2023-04-09T11:36:17.000Z</published>
+    <updated>2023-04-10T15:17:38.306Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;实现：-失败重试&quot;&gt;&lt;a href=&quot;#实现：-失败重试&quot; class=&quot;headerlink&quot; title=&quot;实现： 失败重试&quot;&gt;&lt;/a&gt;实现：</summary>
+        
+      
+    
+    
+    
+    <category term="挑战" scheme="https://dgjunglep.github.io/categories/%E6%8C%91%E6%88%98/"/>
+    
+    
+    <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
+    
+    <category term="rxjava" scheme="https://dgjunglep.github.io/tags/rxjava/"/>
+    
+    <category term="实践" scheme="https://dgjunglep.github.io/tags/%E5%AE%9E%E8%B7%B5/"/>
+    
+    <category term="jclient" scheme="https://dgjunglep.github.io/tags/jclient/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>100DaysCode-Day10 再看RxJava:实践:JClient（一）</title>
+    <link href="https://dgjunglep.github.io/2023/04/08/100dayscode-10/"/>
+    <id>https://dgjunglep.github.io/2023/04/08/100dayscode-10/</id>
+    <published>2023-04-08T11:36:12.000Z</published>
+    <updated>2023-04-10T15:17:38.306Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;pre&gt;&lt;code&gt;经过前面的学习，我们已经了解到一些`RxJava`的使用方式，今天我们在这里借助一个小小的案例来综合使用
+一下我们学到的知识，首先这里我们会使用到`Vert.x`的`RxJava`实现
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;案例&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="挑战" scheme="https://dgjunglep.github.io/categories/%E6%8C%91%E6%88%98/"/>
+    
+    
+    <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
+    
+    <category term="rxjava" scheme="https://dgjunglep.github.io/tags/rxjava/"/>
+    
+    <category term="实践" scheme="https://dgjunglep.github.io/tags/%E5%AE%9E%E8%B7%B5/"/>
+    
+    <category term="jclient" scheme="https://dgjunglep.github.io/tags/jclient/"/>
+    
+  </entry>
+  
+  <entry>
     <title>100DaysCode-Day09 再看RxJava:转化Flowable（二）</title>
     <link href="https://dgjunglep.github.io/2023/04/07/100dayscode-9/"/>
     <id>https://dgjunglep.github.io/2023/04/07/100dayscode-9/</id>
     <published>2023-04-07T22:29:35.000Z</published>
-    <updated>2023-04-07T14:53:14.908Z</updated>
+    <updated>2023-04-10T15:17:38.306Z</updated>
     
     
       
@@ -51,7 +146,7 @@
     <link href="https://dgjunglep.github.io/2023/04/06/100dayscode-8/"/>
     <id>https://dgjunglep.github.io/2023/04/06/100dayscode-8/</id>
     <published>2023-04-06T22:01:55.000Z</published>
-    <updated>2023-04-07T14:53:14.908Z</updated>
+    <updated>2023-04-10T15:17:38.306Z</updated>
     
     
       
@@ -81,7 +176,7 @@
     <link href="https://dgjunglep.github.io/2023/04/05/100dayscode-7/"/>
     <id>https://dgjunglep.github.io/2023/04/05/100dayscode-7/</id>
     <published>2023-04-05T21:27:31.000Z</published>
-    <updated>2023-04-07T14:53:14.908Z</updated>
+    <updated>2023-04-10T15:17:38.306Z</updated>
     
     
       
@@ -111,7 +206,7 @@
     <link href="https://dgjunglep.github.io/2023/04/04/100dayscode-6/"/>
     <id>https://dgjunglep.github.io/2023/04/04/100dayscode-6/</id>
     <published>2023-04-04T22:07:26.000Z</published>
-    <updated>2023-04-07T14:53:14.908Z</updated>
+    <updated>2023-04-10T15:17:38.306Z</updated>
     
     
       
@@ -140,7 +235,7 @@
     <link href="https://dgjunglep.github.io/2023/04/03/100dayscode-5/"/>
     <id>https://dgjunglep.github.io/2023/04/03/100dayscode-5/</id>
     <published>2023-04-03T21:03:08.000Z</published>
-    <updated>2023-04-07T14:53:14.908Z</updated>
+    <updated>2023-04-10T15:17:38.306Z</updated>
     
     
       
@@ -170,7 +265,7 @@
     <link href="https://dgjunglep.github.io/2023/04/02/100dayscode-4/"/>
     <id>https://dgjunglep.github.io/2023/04/02/100dayscode-4/</id>
     <published>2023-04-02T21:01:05.000Z</published>
-    <updated>2023-04-07T14:53:14.908Z</updated>
+    <updated>2023-04-10T15:17:38.306Z</updated>
     
     
       
@@ -199,7 +294,7 @@
     <link href="https://dgjunglep.github.io/2023/04/01/100dayscode-3/"/>
     <id>https://dgjunglep.github.io/2023/04/01/100dayscode-3/</id>
     <published>2023-04-01T21:27:52.000Z</published>
-    <updated>2023-04-07T14:53:14.908Z</updated>
+    <updated>2023-04-10T15:17:38.306Z</updated>
     
     
       
@@ -227,7 +322,7 @@
     <link href="https://dgjunglep.github.io/2023/03/31/100dayscode-2/"/>
     <id>https://dgjunglep.github.io/2023/03/31/100dayscode-2/</id>
     <published>2023-03-31T22:17:04.000Z</published>
-    <updated>2023-04-07T14:53:14.908Z</updated>
+    <updated>2023-04-10T15:17:38.306Z</updated>
     
     
       
@@ -257,7 +352,7 @@
     <link href="https://dgjunglep.github.io/2023/03/30/100dayscode-1/"/>
     <id>https://dgjunglep.github.io/2023/03/30/100dayscode-1/</id>
     <published>2023-03-30T11:21:11.000Z</published>
-    <updated>2023-04-07T14:53:14.908Z</updated>
+    <updated>2023-04-10T15:17:38.306Z</updated>
     
     
       
@@ -284,7 +379,7 @@
     <link href="https://dgjunglep.github.io/2023/03/28/test-layout/"/>
     <id>https://dgjunglep.github.io/2023/03/28/test-layout/</id>
     <published>2023-03-28T21:44:18.000Z</published>
-    <updated>2023-04-07T14:53:14.908Z</updated>
+    <updated>2023-04-10T15:17:38.306Z</updated>
     
     
       
