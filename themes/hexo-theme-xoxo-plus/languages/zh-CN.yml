@@ -1,6 +1,6 @@
 home: 首页
 categories: 分类
-search: 搜索
+search_for: 搜索
 tags: 标签
 tweets: 推文
 prev: 上一页
@@ -11,7 +11,7 @@ page: 第 %d 页
 recent_posts: 最新文章
 close: 关闭
 posts_list: 目录
-about: 关于
+about_me: 关于我
 rss: RSS
 main_site: 主站
 post: 文章
@@ -19,3 +19,5 @@ site: 站点
 links: 友情链接
 project: 项目
 activity: 动态
+read: 图书角
+papers: 原创
