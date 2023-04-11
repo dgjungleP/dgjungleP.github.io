@@ -8,12 +8,13 @@ menu:
     categories: /categories
     archives: /archives
     tags: /tags
-
-  Papers: /paper
+  papers: /paper
   project: /project
   activity: /activity
-  search: /search
-  about: /about
+  read: /read
+  search_for: /search
+  about_me: /about
+
   # rss: /atom.xml
 
 # Miscelaneous
