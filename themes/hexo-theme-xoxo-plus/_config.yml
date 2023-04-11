@@ -76,13 +76,16 @@ projects:
   # hexo-theme-xoxo-plus:
   #   url: https://github.com/fooying/hexo-theme-xoxo-plus
   #   descript: a hexo theme
-
 # activitys
 activitys:
   100DaysCode:
     date: 2023-03-30
     # url: https://ke.qq.com/course/342390?tuin=49018ed
     type: 挑战
+  SDUP:
+    date: 2023-04-11
+    # url: https://ke.qq.com/course/342390?tuin=49018ed
+    type: 项目
 # papers
 papers:
   # 原创翻译：给开发者的终极XSS防护备忘录: https://github.com/fooying/Papers/blob/master/给开发者的终极XSS防护备忘录.pdf
