@@ -5,3 +5,14 @@
   max-width: 20%;
   max-height: 1024px;
 }
+
+.post .post-content table td[align="center"] {
+  text-align: center;
+}
+
+.post .post-content table td[align="left"] {
+  text-align: left;
+}
+.post .post-content table td[align="right"] {
+  text-align: right;
+}
