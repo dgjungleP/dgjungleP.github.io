@@ -11,13 +11,13 @@
   <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
 
   
-  <meta name="keywords" content="挑战,rxjava," />
+  <meta name="keywords" content="挑战,mybatis,插件,工具包," />
    
   <meta name="description" content="记录一些我本该记录的东西" />
    
   <link rel="icon" type="image/x-icon" href="/images/footer-logo.png" />
   
-  <title>100DaysCode-Day12 再看RxJava:转化Flowable（三） [In Jungle ]</title>
+  <title>100DaysCode-Day13 Mybatis 插件入门 [In Jungle ]</title>
   
   <!-- stylesheets list from config.yml -->
   
@@ -117,19 +117,19 @@
   <article class="post" id="post">
     <header class="post-header text-center">
       <h1 class="title">
-        100DaysCode-Day12 再看RxJava:转化Flowable（三）
+        100DaysCode-Day13 Mybatis 插件入门
       </h1>
       <span>
         
-        <time class="time" datetime="2023-04-10T11:36:19.000Z">
-        2023-04-10
+        <time class="time" datetime="2023-04-11T21:17:59.000Z">
+        2023-04-11
       </time>
         
       </span>
       <span class="slash">/</span>
       <span class="post-meta">
       <span class="post-tags">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rxjava/" rel="tag">rxjava</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8C%91%E6%88%98/" rel="tag">挑战</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mybatis/" rel="tag">mybatis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E5%8C%85/" rel="tag">工具包</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8C%91%E6%88%98/" rel="tag">挑战</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8F%92%E4%BB%B6/" rel="tag">插件</a></li></ul>
       </span>
     </span>
       <span class="slash">/</span>
@@ -137,25 +137,37 @@
       <span id="busuanzi_value_page_pv"></span> 点击
     </span>
       <span class="slash">/</span>
-      <span class="read">阅读耗时 4 分钟</span>
+      <span class="read">阅读耗时 6 分钟</span>
     </header>
 
     <div class="post-content">
-      <pre><code>在上次的实例中，我们已经使用过了`retry`,那么我们今天来看一下这个操作到底在帮助我们做些什么事情
-</code></pre>
-<p>我们很轻易的就能创造一个错误</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">generateFlowable</span><span class="params">()</span> &#123;</span><br><span class="line">    Flowable&lt;Integer&gt; retryFlowable = Flowable.range(<span class="number">0</span>, <span class="number">10</span>).map(data -&gt; <span class="number">1000</span> / data).retry(<span class="number">3</span>);</span><br><span class="line">    retryFlowable.subscribe(<span class="keyword">new</span> <span class="title class_">ConsoleSubscribe</span>());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <blockquote>
+<p>最近在做项目的时候，由于需要为实体类生成对应的雪花 ID，但是又不可能每次在创建实例的时候再去<br>调用方法，所以，想到了能不能借助于 Myabtis 的插件来实现，因为在之前的工作过程中也用到过它的<br>分页插件<code>PageHelper</code>,所以接下来将要学习以下 Myabtis 的插件开发</p>
+</blockquote>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Myabtis 的插件允许我们在映射语句执行的过程中的某一个点进行拦截，并且提供了以下几个拦截点（具体的更多的信息，后面再去深读一下源码）</p>
+<ul>
+<li>Executor</li>
+<li>ParameterHandler</li>
+<li>ResultSetHandler</li>
+<li>StatmentHandler<br>所以它主要也是提供了一个拦截器<code>Intercaptor</code>接口来供我们使用，以方便接入我们实现的插件，同时需要配合<code>@intercepts</code>注解和<code>@Signature</code>注解使用</li>
+</ul>
+<p>首先们根据官方的说明简易的创建一个插件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Intercepts(&#123;@Signature(</span></span><br><span class="line"><span class="meta">        type = Executor.class,</span></span><br><span class="line"><span class="meta">        method = &quot;query&quot;,</span></span><br><span class="line"><span class="meta">        args = &#123;MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class&#125;</span></span><br><span class="line"><span class="meta">)&#125;)</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UsedTimeAnalysePlugin</span> <span class="keyword">implements</span> <span class="title class_">Interceptor</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">intercept</span><span class="params">(Invocation invocation)</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">        log.info(<span class="string">&quot;Pre executor&quot;</span>);</span><br><span class="line">        <span class="type">Object</span> <span class="variable">proceed</span> <span class="operator">=</span> invocation.proceed();</span><br><span class="line">        log.info(<span class="string">&quot;After executor&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> proceed;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>于是我们就得到了以下的打印结果：</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Thread:【main】 在 2023-04-10T15:07:24.186Z 开启注册消费！</span><br><span class="line">Thread:【main】 在 2023-04-10T15:07:24.196Z 发现了异常错误！java.lang.ArithmeticException: / by zero</span><br></pre></td></tr></table></figure>
+<p>下面我们再来说明一下每个地方到底是怎么回事</p>
+<h3 id="Intercepts"><a href="#Intercepts" class="headerlink" title="@Intercepts"></a>@Intercepts</h3><p>这里是为了指定哪些方法需要被当前我们声明的拦截器拦截到，具体的拦截信息是在内部的<code>@Signature</code>来定义的，这里相当于是一个标识注解</p>
+<h3 id="Signature"><a href="#Signature" class="headerlink" title="@Signature"></a>@Signature</h3><p>这里是声明具体哪个方法需要被拦截到，当前例子的说明如下：</p>
+<h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4><p>这里是指代的我们上面所说的拦截点，这里我们选择的是<code>Executor</code></p>
+<h4 id="method"><a href="#method" class="headerlink" title="method"></a>method</h4><p>这里是指代的我们拦截点上的某个方法的名称，这里我们选择的是拦截<code>Executor</code>的<code>query</code>方法</p>
+<h4 id="args"><a href="#args" class="headerlink" title="args"></a>args</h4><p>这里可能会比较疑惑，为什么我们这里会填写这四个类呢？我们需要去找到<code>Executor</code>的<code>query</code>方法的声明</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;E&gt; List&lt;E&gt; <span class="title function_">query</span><span class="params">(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler)</span> <span class="keyword">throws</span> SQLException;</span><br></pre></td></tr></table></figure>
 
-<p>根绝这个结果我们看到，一旦发生了错误，整个<code>Flowable</code>就停止了，并且程序貌似并没有像我们预期的方式重试三次，这个是为什么呢？<br>经过对<code>Flowable</code>进一步研究，我们猜想是不是并没有进入到我们预期的<code>onNext</code>方法中，是不是与我们的<code>map</code>操作有关，所以我们在<code>map</code>操作之前加入一个监听方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">generateFlowable</span><span class="params">()</span> &#123;</span><br><span class="line">    Flowable&lt;Integer&gt; retryFlowable = Flowable.range(<span class="number">0</span>, <span class="number">10</span>)</span><br><span class="line">            .doOnEach(data -&gt; System.out.println(<span class="string">&quot;Thread:【&quot;</span> + Thread.currentThread().getName() + <span class="string">&quot;】 在 &quot;</span> + Instant</span><br><span class="line">                    .now() + <span class="string">&quot; 消费了 data【&quot;</span> + data.getValue() + <span class="string">&quot;】&quot;</span>))</span><br><span class="line">            .map(data -&gt; <span class="number">1000</span> / data).retry(<span class="number">3</span>);</span><br><span class="line">    retryFlowable.subscribe(<span class="keyword">new</span> <span class="title class_">ConsoleSubscribe</span>());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到我们这里的所填写的四个类信息，就是对应的方法声明的四个入参的类信息</p>
+<p>所以综上所述，<code>@Signature</code>其实就是去指明我们要拦截的方法到底是哪一个</p>
+<h3 id="UsedTimeAnalysePlugin"><a href="#UsedTimeAnalysePlugin" class="headerlink" title="UsedTimeAnalysePlugin"></a>UsedTimeAnalysePlugin</h3><p>这里就是我们通过实现 Mybatis 提供的接口来实现的<code>自定义的Plugin</code>，最简易的方法就是去实现他的<code>intercept</code>方法，像在这里我们就是简单的在语句允许的前后，打印了一些信息通过执行我们可以得到以下结果：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">2023-04-11 22:45:00.028  INFO 17896 --- [           main] c.j.c.plugins.UsedTimeAnalysePlugin      : Pre executor</span><br><span class="line">JDBC Connection [HikariProxyConnection@4491252 wrapping conn0: url=jdbc:h2:mem:testdb user=SA] will not be managed by Spring</span><br><span class="line">==&gt;  Preparing: select * from user</span><br><span class="line">==&gt; Parameters:</span><br><span class="line">&lt;==    Columns: ID, USER_NAME</span><br><span class="line">&lt;==        Row: 1, user1</span><br><span class="line">&lt;==        Row: 2, user2</span><br><span class="line">&lt;==        Row: 3, user3</span><br><span class="line">&lt;==        Row: 4, user4</span><br><span class="line">&lt;==        Row: 5, user5</span><br><span class="line">&lt;==        Row: 6, user6</span><br><span class="line">&lt;==      Total: 6</span><br><span class="line">2023-04-11 22:45:42.161  INFO 17896 --- [           main] c.j.c.plugins.UsedTimeAnalysePlugin      : After executor</span><br></pre></td></tr></table></figure>
 
-<p>我们又得到了以下结果：</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Thread:【main】 在 2023-04-10T15:11:24.690Z 开启注册消费！</span><br><span class="line">Thread:【main】 在 2023-04-10T15:11:24.699Z 消费了 data【0】</span><br><span class="line">Thread:【main】 在 2023-04-10T15:11:24.700Z 消费了 data【0】</span><br><span class="line">Thread:【main】 在 2023-04-10T15:11:24.700Z 消费了 data【0】</span><br><span class="line">Thread:【main】 在 2023-04-10T15:11:24.700Z 消费了 data【0】</span><br><span class="line">Thread:【main】 在 2023-04-10T15:11:24.701Z 发现了异常错误！java.lang.ArithmeticException: / by zero</span><br></pre></td></tr></table></figure>
-
-<p>很明显的可以看得到，<code>RxJava</code>在我们自己执行错误的情况下，确实帮助我们重试了三次，而且重试点应该是从操作的头部开始，并且尾部的接收方法<code>onNext</code>并不会捕获到执行情况，所以在使用的时候需要特别注意。<br>其次并不是<code>retry</code>中断了<code>Flowale</code>中的数据传递，是因为错误被<code>onError</code>捕获到了，所以才会推出当前的数据传递。</p>
+<p>所以一个简易的 Mybatis Plugin 就这样被我们实现了。<br>在这里我们其实需要注意的是，他的实现很简单，但是我们需要分析到我们到底想要做些什么，才能找到对应的方法去给他装配插件，最后才能达到我们想要的效果，所以如果要去实现 Mybatis 的插件，我们就得了解到，我们到底需要去拦截哪个拦截点的哪个方法。</p>
 <p>相关代码地址:<br><a target="_blank" rel="noopener" href="https://github.com/dgjungleP/100days-code-round1">100daysCode</a></p>
 
     </div>
@@ -163,6 +175,11 @@
   </article>
   <div class="toc-container">
     
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Intercepts"><span class="toc-text">@Intercepts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Signature"><span class="toc-text">@Signature</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#type"><span class="toc-text">type</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#method"><span class="toc-text">method</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#args"><span class="toc-text">args</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UsedTimeAnalysePlugin"><span class="toc-text">UsedTimeAnalysePlugin</span></a></li></ol></li></ol>
+  </div>
+
 
   </div>
 </div>
@@ -178,19 +195,14 @@
       <div class="post-nav-item post-nav-next">
         
           <span>〈 </span>
-          <a href="/2023/04/09/100dayscode-11/" rel="next" title="100DaysCode-Day11 再看RxJava:实践:JClient（二）">
-          100DaysCode-Day11 再看RxJava:实践:JClient（二）
+          <a href="/2023/04/10/100dayscode-12/" rel="next" title="100DaysCode-Day12 再看RxJava:转化Flowable（三）">
+          100DaysCode-Day12 再看RxJava:转化Flowable（三）
           </a>
         
       </div>
   
       <div class="post-nav-item post-nav-prev">
           
-          <a href="/2023/04/11/100dayscode-13/" rel="prev" title="100DaysCode-Day13 Mybatis 插件入门">
-            100DaysCode-Day13 Mybatis 插件入门
-          </a>
-          <span>〉</span>
-        
       </div>
     </div>
   
