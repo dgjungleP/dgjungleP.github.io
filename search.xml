@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>100DaysCode-Day14 Mybatis 插件:敏感数据脱敏插件（一）</title>
+      <link href="/2023/04/12/100dayscode-14/"/>
+      <url>/2023/04/12/100dayscode-14/</url>
+      
+        <content type="html"><![CDATA[<pre><code>为了巩固之前对Mybatis插件的学习，同时也想到了一个之前经常遇到的问题，数据库的数据需要脱敏（如用户手机号，密码等），那么今天我们就来一个创建一个Mybatis的数据脱敏插件</code></pre><h2 id="数据脱敏插件"><a href="#数据脱敏插件" class="headerlink" title="数据脱敏插件"></a>数据脱敏插件</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>首先通过对需求的分析，我们可以轻易得知以下几个要点</p><ol><li>我们需要对查询的返回值进行数据脱敏</li><li>脱敏的数据需要被标记，不然插件无法得知哪些数据是需要脱敏的</li><li>每个数据的脱敏策略可能不一样，所以在标记的时候或许需要预设好脱敏的策略</li></ol><h3 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h3><h4 id="对查询返回值进行脱敏"><a href="#对查询返回值进行脱敏" class="headerlink" title="对查询返回值进行脱敏"></a>对查询返回值进行脱敏</h4><blockquote><p>那么我们结合上次所学到的知识，我们可以确定到我们需要用到的插入点是 ResultSetHandler</p></blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ResultSetHandler</span> &#123;</span><br><span class="line"></span><br><span class="line">  &lt;E&gt; List&lt;E&gt; <span class="title function_">handleResultSets</span><span class="params">(Statement stmt)</span> <span class="keyword">throws</span> SQLException;</span><br><span class="line"></span><br><span class="line">  &lt;E&gt; Cursor&lt;E&gt; <span class="title function_">handleCursorResultSets</span><span class="params">(Statement stmt)</span> <span class="keyword">throws</span> SQLException;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">void</span> <span class="title function_">handleOutputParameters</span><span class="params">(CallableStatement cs)</span> <span class="keyword">throws</span> SQLException;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>那么很自然的可以看到有一个<code>handleResultSets</code>方法，那么我们就对这个方法进行拦截。那么就得到了以下的拦截注解</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Intercepts(&#123;@Signature(</span></span><br><span class="line"><span class="meta">        type = ResultSetHandler.class,</span></span><br><span class="line"><span class="meta">        method = &quot;handleResultSets&quot;,</span></span><br><span class="line"><span class="meta">        args = &#123;Statement.class&#125;</span></span><br><span class="line"><span class="meta">)&#125;)</span></span><br></pre></td></tr></table></figure><h4 id="标记数据"><a href="#标记数据" class="headerlink" title="标记数据"></a>标记数据</h4><p>标记数据我们最常用的就是自定义注解了，所以这里我们就创建一个自定义注解，用来标记我们需要脱敏的数据</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.FIELD&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Desensitized &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="多种脱敏策略"><a href="#多种脱敏策略" class="headerlink" title="多种脱敏策略"></a>多种脱敏策略</h4><p>我们可以借助在我们创建的自定义注解<code>Desensitized</code>添加策略字段，来标记使用哪一种策略，我们这里创建一个策略接口，并提供一个默认实现类</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">DesensitizeStrategy</span>&lt;T, R&gt; &#123;</span><br><span class="line"></span><br><span class="line">    R <span class="title function_">doDesensitize</span><span class="params">(T data)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DefaultDesensitizeStrategy</span> <span class="keyword">implements</span> <span class="title class_">DesensitizeStrategy</span>&lt;String, String&gt; &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">doDesensitize</span><span class="params">(String data)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>OK,方案已经定好了，那么下一次我们来将整体的方案进行整合和调整，来实现我们自己 DIY 的一个数据脱敏插件</p><p>相关代码地址:<br><a href="https://github.com/dgjungleP/100days-code-round1">100daysCode</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 挑战 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 挑战 </tag>
+            
+            <tag> mybatis </tag>
+            
+            <tag> 插件 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>100DaysCode-Day13 Mybatis 插件入门</title>
       <link href="/2023/04/11/100dayscode-13/"/>
       <url>/2023/04/11/100dayscode-13/</url>
@@ -25,8 +54,6 @@
             <tag> mybatis </tag>
             
             <tag> 插件 </tag>
-            
-            <tag> 工具包 </tag>
             
         </tags>
       

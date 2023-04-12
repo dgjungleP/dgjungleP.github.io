@@ -6,7 +6,7 @@
   <link href="https://dgjunglep.github.io/atom.xml" rel="self"/>
   
   <link href="https://dgjunglep.github.io/"/>
-  <updated>2023-04-11T14:51:20.195Z</updated>
+  <updated>2023-04-12T15:23:04.686Z</updated>
   <id>https://dgjunglep.github.io/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>100DaysCode-Day14 Mybatis 插件:敏感数据脱敏插件（一）</title>
+    <link href="https://dgjunglep.github.io/2023/04/12/100dayscode-14/"/>
+    <id>https://dgjunglep.github.io/2023/04/12/100dayscode-14/</id>
+    <published>2023-04-12T22:05:58.000Z</published>
+    <updated>2023-04-12T15:23:04.686Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;pre&gt;&lt;code&gt;为了巩固之前对Mybatis插件的学习，同时也想到了一个之前经常遇到的问题，数据库的数据需要脱敏（如用户
+手机号，密码等），那么今天我们就来一个创建一个Mybatis的数据脱敏插件
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;数据脱敏插件&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="挑战" scheme="https://dgjunglep.github.io/categories/%E6%8C%91%E6%88%98/"/>
+    
+    
+    <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
+    
+    <category term="mybatis" scheme="https://dgjunglep.github.io/tags/mybatis/"/>
+    
+    <category term="插件" scheme="https://dgjunglep.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>100DaysCode-Day13 Mybatis 插件入门</title>
     <link href="https://dgjunglep.github.io/2023/04/11/100dayscode-13/"/>
     <id>https://dgjunglep.github.io/2023/04/11/100dayscode-13/</id>
     <published>2023-04-11T21:17:59.000Z</published>
-    <updated>2023-04-11T14:51:20.195Z</updated>
+    <updated>2023-04-12T15:23:04.682Z</updated>
     
     
       
@@ -44,8 +76,6 @@
     
     <category term="插件" scheme="https://dgjunglep.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
     
-    <category term="工具包" scheme="https://dgjunglep.github.io/tags/%E5%B7%A5%E5%85%B7%E5%8C%85/"/>
-    
   </entry>
   
   <entry>
@@ -53,7 +83,7 @@
     <link href="https://dgjunglep.github.io/2023/04/10/100dayscode-12/"/>
     <id>https://dgjunglep.github.io/2023/04/10/100dayscode-12/</id>
     <published>2023-04-10T11:36:19.000Z</published>
-    <updated>2023-04-11T14:51:20.195Z</updated>
+    <updated>2023-04-12T15:23:04.682Z</updated>
     
     
       
@@ -83,7 +113,7 @@
     <link href="https://dgjunglep.github.io/2023/04/09/100dayscode-11/"/>
     <id>https://dgjunglep.github.io/2023/04/09/100dayscode-11/</id>
     <published>2023-04-09T11:36:17.000Z</published>
-    <updated>2023-04-11T14:51:20.195Z</updated>
+    <updated>2023-04-12T15:23:04.682Z</updated>
     
     
       
@@ -114,7 +144,7 @@
     <link href="https://dgjunglep.github.io/2023/04/08/100dayscode-10/"/>
     <id>https://dgjunglep.github.io/2023/04/08/100dayscode-10/</id>
     <published>2023-04-08T11:36:12.000Z</published>
-    <updated>2023-04-11T14:51:20.195Z</updated>
+    <updated>2023-04-12T15:23:04.682Z</updated>
     
     
       
@@ -148,7 +178,7 @@
     <link href="https://dgjunglep.github.io/2023/04/07/100dayscode-9/"/>
     <id>https://dgjunglep.github.io/2023/04/07/100dayscode-9/</id>
     <published>2023-04-07T22:29:35.000Z</published>
-    <updated>2023-04-11T14:51:20.195Z</updated>
+    <updated>2023-04-12T15:23:04.682Z</updated>
     
     
       
@@ -178,7 +208,7 @@
     <link href="https://dgjunglep.github.io/2023/04/06/100dayscode-8/"/>
     <id>https://dgjunglep.github.io/2023/04/06/100dayscode-8/</id>
     <published>2023-04-06T22:01:55.000Z</published>
-    <updated>2023-04-11T14:51:20.195Z</updated>
+    <updated>2023-04-12T15:23:04.682Z</updated>
     
     
       
@@ -208,7 +238,7 @@
     <link href="https://dgjunglep.github.io/2023/04/05/100dayscode-7/"/>
     <id>https://dgjunglep.github.io/2023/04/05/100dayscode-7/</id>
     <published>2023-04-05T21:27:31.000Z</published>
-    <updated>2023-04-11T14:51:20.195Z</updated>
+    <updated>2023-04-12T15:23:04.682Z</updated>
     
     
       
@@ -238,7 +268,7 @@
     <link href="https://dgjunglep.github.io/2023/04/04/100dayscode-6/"/>
     <id>https://dgjunglep.github.io/2023/04/04/100dayscode-6/</id>
     <published>2023-04-04T22:07:26.000Z</published>
-    <updated>2023-04-11T14:51:20.195Z</updated>
+    <updated>2023-04-12T15:23:04.682Z</updated>
     
     
       
@@ -267,7 +297,7 @@
     <link href="https://dgjunglep.github.io/2023/04/03/100dayscode-5/"/>
     <id>https://dgjunglep.github.io/2023/04/03/100dayscode-5/</id>
     <published>2023-04-03T21:03:08.000Z</published>
-    <updated>2023-04-11T14:51:20.195Z</updated>
+    <updated>2023-04-12T15:23:04.682Z</updated>
     
     
       
@@ -297,7 +327,7 @@
     <link href="https://dgjunglep.github.io/2023/04/02/100dayscode-4/"/>
     <id>https://dgjunglep.github.io/2023/04/02/100dayscode-4/</id>
     <published>2023-04-02T21:01:05.000Z</published>
-    <updated>2023-04-11T14:51:20.195Z</updated>
+    <updated>2023-04-12T15:23:04.682Z</updated>
     
     
       
@@ -326,7 +356,7 @@
     <link href="https://dgjunglep.github.io/2023/04/01/100dayscode-3/"/>
     <id>https://dgjunglep.github.io/2023/04/01/100dayscode-3/</id>
     <published>2023-04-01T21:27:52.000Z</published>
-    <updated>2023-04-11T14:51:20.195Z</updated>
+    <updated>2023-04-12T15:23:04.682Z</updated>
     
     
       
@@ -354,7 +384,7 @@
     <link href="https://dgjunglep.github.io/2023/03/31/100dayscode-2/"/>
     <id>https://dgjunglep.github.io/2023/03/31/100dayscode-2/</id>
     <published>2023-03-31T22:17:04.000Z</published>
-    <updated>2023-04-11T14:51:20.195Z</updated>
+    <updated>2023-04-12T15:23:04.682Z</updated>
     
     
       
@@ -384,7 +414,7 @@
     <link href="https://dgjunglep.github.io/2023/03/30/100dayscode-1/"/>
     <id>https://dgjunglep.github.io/2023/03/30/100dayscode-1/</id>
     <published>2023-03-30T11:21:11.000Z</published>
-    <updated>2023-04-11T14:51:20.195Z</updated>
+    <updated>2023-04-12T15:23:04.682Z</updated>
     
     
       
@@ -411,7 +441,7 @@
     <link href="https://dgjunglep.github.io/2023/03/28/test-layout/"/>
     <id>https://dgjunglep.github.io/2023/03/28/test-layout/</id>
     <published>2023-03-28T21:44:18.000Z</published>
-    <updated>2023-04-11T14:51:20.195Z</updated>
+    <updated>2023-04-12T15:23:04.682Z</updated>
     
     
       
