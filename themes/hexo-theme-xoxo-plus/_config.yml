@@ -86,6 +86,10 @@ activitys:
     date: 2023-04-11
     # url: https://ke.qq.com/course/342390?tuin=49018ed
     type: 项目
+  Mybatis源码阅读:
+    date: 2023-04-11
+    # url: https://ke.qq.com/course/342390?tuin=49018ed
+    type: 源码学习
 # papers
 papers:
   # 原创翻译：给开发者的终极XSS防护备忘录: https://github.com/fooying/Papers/blob/master/给开发者的终极XSS防护备忘录.pdf
