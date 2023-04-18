@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>100dayscode-20</title>
+      <title>100dayscode-20 SPI机制浅读:TypeConversion SPI</title>
       <link href="/2023/04/18/100dayscode-20/"/>
       <url>/2023/04/18/100dayscode-20/</url>
       
-        <content type="html"><![CDATA[<p>相关代码地址:<br><a href="https://github.com/dgjungleP/100days-code-round1">100daysCode</a></p>]]></content>
+        <content type="html"><![CDATA[<p>誊写中</p><p>相关代码地址:<br><a href="https://github.com/dgjungleP/100days-code-round1">100daysCode</a></p>]]></content>
       
       
       <categories>
@@ -21,6 +21,10 @@
         <tags>
             
             <tag> 挑战 </tag>
+            
+            <tag> spi </tag>
+            
+            <tag> spring </tag>
             
         </tags>
       
@@ -29,11 +33,11 @@
     
     
     <entry>
-      <title>100dayscode-19 占位</title>
+      <title>100dayscode-19 SPI机制浅读:Spring SPI</title>
       <link href="/2023/04/17/100dayscode-19/"/>
       <url>/2023/04/17/100dayscode-19/</url>
       
-        <content type="html"><![CDATA[<p>占位</p><p>相关代码地址:<br><a href="https://github.com/dgjungleP/100days-code-round1">100daysCode</a></p>]]></content>
+        <content type="html"><![CDATA[<p>誊写中</p><p>相关代码地址:<br><a href="https://github.com/dgjungleP/100days-code-round1">100daysCode</a></p>]]></content>
       
       
       <categories>
@@ -47,7 +51,9 @@
             
             <tag> 挑战 </tag>
             
-            <tag> rpc </tag>
+            <tag> spi </tag>
+            
+            <tag> spring </tag>
             
         </tags>
       
@@ -74,7 +80,13 @@
             
             <tag> 挑战 </tag>
             
-            <tag> rpc </tag>
+            <tag> spi </tag>
+            
+            <tag> java </tag>
+            
+            <tag> 类加载器 </tag>
+            
+            <tag> jvm </tag>
             
         </tags>
       
@@ -101,7 +113,9 @@
             
             <tag> 挑战 </tag>
             
-            <tag> rpc </tag>
+            <tag> spi </tag>
+            
+            <tag> java </tag>
             
         </tags>
       
