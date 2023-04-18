@@ -17,7 +17,7 @@
    
   <link rel="icon" type="image/x-icon" href="/images/footer-logo.png" />
   
-  <title>100dayscode-17 占位 [In Jungle ]</title>
+  <title>100dayscode-17 SPI机制浅读:Java SPI [In Jungle ]</title>
   
   <!-- stylesheets list from config.yml -->
   
@@ -117,7 +117,7 @@
   <article class="post" id="post">
     <header class="post-header text-center">
       <h1 class="title">
-        100dayscode-17 占位
+        100dayscode-17 SPI机制浅读:Java SPI
       </h1>
       <span>
         
@@ -137,11 +137,53 @@
       <span id="busuanzi_value_page_pv"></span> 点击
     </span>
       <span class="slash">/</span>
-      <span class="read">阅读耗时 1 分钟</span>
+      <span class="read">阅读耗时 8 分钟</span>
     </header>
 
     <div class="post-content">
-      <p>占位</p>
+      <pre><code>在开始了解RPC的时候，我们常常会学会去用到`SpringCloud`和`Dubbo`,那么就必不可少的会去接触到
+`SPI`，一个熟悉而又陌生的概念，那么今天我们就先来看看这个神秘的`SPI`到底是什么，它能给我们带来什
+么有意思的东西
+</code></pre>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p><code>SPI</code> 英文全称<code>Service provider interface</code>，从名字我们就可以看的出来，它应该是作用于<code>接口</code>（不一定是 Java 中的那个接口），同时也是提供给对应的供应商的，从字面意思我们可以解读出来，它应该是用作为一些第三方需要接入的实现或者组件预留的一套工具，是一套服务发现机制。</p>
+<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><p>其实使用<code>SPI</code>相对来说比理解它更为简单，我们基本上只需要遵循它给到的一些模板，我们就能很好的去利用这样的一个工具。</p>
+<h2 id="固定的-SPI-加载工具类"><a href="#固定的-SPI-加载工具类" class="headerlink" title="固定的 SPI 加载工具类"></a>固定的 SPI 加载工具类</h2><p>JDK 给我们预留了一个用于寻找<code>SPI</code>实现的工具类<code>java.util.ServiceLoader</code>,我们只需要简单的使用它就能够得到我们想要的结果，我们可以看看它的一个方法签名：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;S&gt; ServiceLoader&lt;S&gt; <span class="title function_">load</span><span class="params">(Class&lt;S&gt; service,</span></span><br><span class="line"><span class="params">                                        ClassLoader loader)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="固定的文件路径"><a href="#固定的文件路径" class="headerlink" title="固定的文件路径"></a>固定的文件路径</h2><p>当我们再进一步去读<code>ServiceLoader</code>的源码的时候，我们就会再开头就看到，它有一个静态变量:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">PREFIX</span> <span class="operator">=</span> <span class="string">&quot;META-INF/services/&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>我们我们去追寻它的使用的地方的时候会看到这样一段代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">hasNextService</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (nextName != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (configs == <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">fullName</span> <span class="operator">=</span> PREFIX + service.getName();</span><br><span class="line">            <span class="keyword">if</span> (loader == <span class="literal">null</span>)</span><br><span class="line">                configs = ClassLoader.getSystemResources(fullName);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">	            configs = loader.getResources(fullName);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException x) &#123;</span><br><span class="line">            fail(service, <span class="string">&quot;Error locating configuration files&quot;</span>, x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> ((pending == <span class="literal">null</span>) || !pending.hasNext()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!configs.hasMoreElements()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        pending = parse(service, configs.nextElement());</span><br><span class="line">    &#125;</span><br><span class="line">    nextName = pending.next();</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从这里我们可以进一步确认到，当去寻找<code>SPI</code>具体的实现的时候，我们就会用到这个文件夹，并且再读取文件的时候，使用的是需要寻找的类的全限定名。</p>
+<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><p>在看到如何使用后，我们开始大胆的尝试，来利用<code>SPI</code>来发现我们定义的服务</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>首先我们创建一个<code>People</code>接口，来指定我们的需要实现的<code>SPI</code>，并且实现两个他的实现类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">People</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">name</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Boy</span> <span class="keyword">implements</span> <span class="title class_">People</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">name</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;I`m boy&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Girl</span> <span class="keyword">implements</span> <span class="title class_">People</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">name</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;I`m girl&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后在<code>resource</code>目录下创建对应的目录文件<code>META-INF/services/com.jungle.challenge.spi.interfaces.People</code><br>然后创建一个工厂方法，用来执行<code>SPI</code>的具体实现的操作：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PeopleFactory</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">invoker</span><span class="params">()</span> &#123;</span><br><span class="line">        ServiceLoader&lt;People&gt; loader = ServiceLoader.load(People.class);</span><br><span class="line"></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">notFound</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (People people : loader) &#123;</span><br><span class="line">            notFound = <span class="literal">false</span>;</span><br><span class="line">            people.name();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (notFound) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;Not found any People instant&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="执行验证"><a href="#执行验证" class="headerlink" title="执行验证"></a>执行验证</h2><p>接下来我们直接调用<code>PeopleFactory</code>的<code>invoker</code>方法，可以看到我们报错了：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java.lang.RuntimeException: Not found any People instant</span><br><span class="line"></span><br><span class="line">	at com.jungle.challenge.spi.core.PeopleFactory.invoker(PeopleFactory.java:18)</span><br></pre></td></tr></table></figure>
+
+<p>然后我们在<code>com.jungle.challenge.spi.interfaces.People</code>文件中添加我们两个实现类的路径地址</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">com.jungle.challenge.spi.v2.Girl</span><br><span class="line">com.jungle.challenge.spi.v1.Boy</span><br></pre></td></tr></table></figure>
+
+<p>再次执行</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">I`m girl</span><br><span class="line">I`m boy</span><br></pre></td></tr></table></figure>
+
+<p>我们确实拿到了我们需要的两个实体类，并执行了他们的<code>name</code>方法</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>所以以上就是我们简单的将<code>SPI</code>这个强大的机制使用起来了，当然真实的用法肯定不是在同一个包里面进行使用，这样太过于复杂，何不直接利用简单的多态就行了呢，所以一般都是在一些公共的组件里面预留一些接口给第三方实现的时候使用。一般我们接触到的最多的就是 JDBC 和日志模块，当然在一些框架里面也能经常看到他的身影：</p>
+<ol>
+<li>Spring MVC</li>
+<li>Spring Boot</li>
+<li>Dubbo<br>在这些框架里面还有一些不同的地方，我们在后面再去摸索以下。</li>
+</ol>
+<p>在查阅<code>ServiceLoader</code>的源码的时候，我们发现它利用到了类加载器，并且在默认的方法是先用还是用到的线程上下文的类加载器:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;S&gt; ServiceLoader&lt;S&gt; <span class="title function_">load</span><span class="params">(Class&lt;S&gt; service)</span> &#123;</span><br><span class="line">    <span class="type">ClassLoader</span> <span class="variable">cl</span> <span class="operator">=</span> Thread.currentThread().getContextClassLoader();</span><br><span class="line">    <span class="keyword">return</span> ServiceLoader.load(service, cl);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那么接下来我们就来说说这个类加载器到底在干些什么事情，为什么我们需要在这里指定。</p>
 <p>相关代码地址:<br><a target="_blank" rel="noopener" href="https://github.com/dgjungleP/100days-code-round1">100daysCode</a></p>
 
     </div>
@@ -149,6 +191,11 @@
   </article>
   <div class="toc-container">
     
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="toc-text">如何使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E7%9A%84-SPI-%E5%8A%A0%E8%BD%BD%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-text">固定的 SPI 加载工具类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E7%9A%84%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84"><span class="toc-text">固定的文件路径</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E8%B7%B5"><span class="toc-text">实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87"><span class="toc-text">准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E9%AA%8C%E8%AF%81"><span class="toc-text">执行验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-text">结论</span></a></li></ol></li></ol>
+  </div>
+
 
   </div>
 </div>
@@ -172,8 +219,8 @@
   
       <div class="post-nav-item post-nav-prev">
           
-          <a href="/2023/04/16/100dayscode-18/" rel="prev" title="100dayscode-18 占位">
-            100dayscode-18 占位
+          <a href="/2023/04/16/100dayscode-18/" rel="prev" title="100dayscode-18 双亲委派和打破双亲委派">
+            100dayscode-18 双亲委派和打破双亲委派
           </a>
           <span>〉</span>
         
