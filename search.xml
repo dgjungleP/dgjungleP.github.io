@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>100DaysCode-Day21 SPI机制浅读:Dubbo SPI</title>
+      <title>SPI机制浅读:Dubbo SPI</title>
       <link href="/2023/04/19/100dayscode-21/"/>
       <url>/2023/04/19/100dayscode-21/</url>
       
@@ -13,14 +13,16 @@
       
       <categories>
           
-          <category> 挑战 </category>
+          <category> 知识点 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 挑战 </tag>
+            <tag> spi </tag>
+            
+            <tag> dubbo </tag>
             
         </tags>
       
