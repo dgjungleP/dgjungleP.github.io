@@ -78,7 +78,7 @@ projects:
   #   descript: a hexo theme
 # activitys
 activitys:
-  100DaysCode:
+  100DaysCode(个人原因中断在20/100):
     date: 2023-03-30
     # url: https://ke.qq.com/course/342390?tuin=49018ed
     type: 挑战
