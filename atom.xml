@@ -6,7 +6,7 @@
   <link href="https://dgjunglep.github.io/atom.xml" rel="self"/>
   
   <link href="https://dgjunglep.github.io/"/>
-  <updated>2023-05-10T23:40:12.460Z</updated>
+  <updated>2023-05-21T02:23:34.124Z</updated>
   <id>https://dgjunglep.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://dgjunglep.github.io/2023/04/19/100dayscode-21/"/>
     <id>https://dgjunglep.github.io/2023/04/19/100dayscode-21/</id>
     <published>2023-04-19T21:34:24.000Z</published>
-    <updated>2023-05-10T23:40:12.460Z</updated>
+    <updated>2023-05-21T02:23:34.124Z</updated>
     
     
       
@@ -37,9 +37,9 @@
     <category term="知识点" scheme="https://dgjunglep.github.io/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
     
     
-    <category term="spi" scheme="https://dgjunglep.github.io/tags/spi/"/>
+    <category term="SPI" scheme="https://dgjunglep.github.io/tags/SPI/"/>
     
-    <category term="dubbo" scheme="https://dgjunglep.github.io/tags/dubbo/"/>
+    <category term="Dubbo" scheme="https://dgjunglep.github.io/tags/Dubbo/"/>
     
   </entry>
   
@@ -48,7 +48,7 @@
     <link href="https://dgjunglep.github.io/2023/04/18/100dayscode-20/"/>
     <id>https://dgjunglep.github.io/2023/04/18/100dayscode-20/</id>
     <published>2023-04-18T21:12:26.000Z</published>
-    <updated>2023-05-10T23:40:12.460Z</updated>
+    <updated>2023-05-21T02:23:34.124Z</updated>
     
     
       
@@ -67,11 +67,11 @@
     
     <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
     
-    <category term="dubbo" scheme="https://dgjunglep.github.io/tags/dubbo/"/>
+    <category term="Dubbo" scheme="https://dgjunglep.github.io/tags/Dubbo/"/>
     
-    <category term="rpc" scheme="https://dgjunglep.github.io/tags/rpc/"/>
+    <category term="RPC" scheme="https://dgjunglep.github.io/tags/RPC/"/>
     
-    <category term="demo" scheme="https://dgjunglep.github.io/tags/demo/"/>
+    <category term="Demo" scheme="https://dgjunglep.github.io/tags/Demo/"/>
     
   </entry>
   
@@ -80,7 +80,7 @@
     <link href="https://dgjunglep.github.io/2023/04/17/100dayscode-19/"/>
     <id>https://dgjunglep.github.io/2023/04/17/100dayscode-19/</id>
     <published>2023-04-17T17:42:51.000Z</published>
-    <updated>2023-05-10T23:40:12.460Z</updated>
+    <updated>2023-05-21T02:23:34.124Z</updated>
     
     
       
@@ -99,9 +99,9 @@
     
     <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
     
-    <category term="spi" scheme="https://dgjunglep.github.io/tags/spi/"/>
+    <category term="SPI" scheme="https://dgjunglep.github.io/tags/SPI/"/>
     
-    <category term="spring" scheme="https://dgjunglep.github.io/tags/spring/"/>
+    <category term="Spring" scheme="https://dgjunglep.github.io/tags/Spring/"/>
     
   </entry>
   
@@ -110,7 +110,7 @@
     <link href="https://dgjunglep.github.io/2023/04/16/100dayscode-18/"/>
     <id>https://dgjunglep.github.io/2023/04/16/100dayscode-18/</id>
     <published>2023-04-16T17:42:48.000Z</published>
-    <updated>2023-05-10T23:40:12.460Z</updated>
+    <updated>2023-05-21T02:23:34.124Z</updated>
     
     
       
@@ -130,13 +130,13 @@
     
     <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
     
-    <category term="spi" scheme="https://dgjunglep.github.io/tags/spi/"/>
+    <category term="SPI" scheme="https://dgjunglep.github.io/tags/SPI/"/>
     
-    <category term="java" scheme="https://dgjunglep.github.io/tags/java/"/>
+    <category term="Java" scheme="https://dgjunglep.github.io/tags/Java/"/>
     
     <category term="类加载器" scheme="https://dgjunglep.github.io/tags/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/"/>
     
-    <category term="jvm" scheme="https://dgjunglep.github.io/tags/jvm/"/>
+    <category term="JVM" scheme="https://dgjunglep.github.io/tags/JVM/"/>
     
   </entry>
   
@@ -145,7 +145,7 @@
     <link href="https://dgjunglep.github.io/2023/04/15/100dayscode-17/"/>
     <id>https://dgjunglep.github.io/2023/04/15/100dayscode-17/</id>
     <published>2023-04-15T17:41:46.000Z</published>
-    <updated>2023-05-10T23:40:12.460Z</updated>
+    <updated>2023-05-21T02:23:34.124Z</updated>
     
     
       
@@ -166,9 +166,9 @@
     
     <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
     
-    <category term="spi" scheme="https://dgjunglep.github.io/tags/spi/"/>
+    <category term="SPI" scheme="https://dgjunglep.github.io/tags/SPI/"/>
     
-    <category term="java" scheme="https://dgjunglep.github.io/tags/java/"/>
+    <category term="Java" scheme="https://dgjunglep.github.io/tags/Java/"/>
     
   </entry>
   
@@ -177,7 +177,7 @@
     <link href="https://dgjunglep.github.io/2023/04/14/100dayscode-16/"/>
     <id>https://dgjunglep.github.io/2023/04/14/100dayscode-16/</id>
     <published>2023-04-14T21:59:23.000Z</published>
-    <updated>2023-05-10T23:40:12.460Z</updated>
+    <updated>2023-05-21T02:23:34.124Z</updated>
     
     
       
@@ -197,7 +197,7 @@
     
     <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
     
-    <category term="mybatis" scheme="https://dgjunglep.github.io/tags/mybatis/"/>
+    <category term="Mybatis" scheme="https://dgjunglep.github.io/tags/Mybatis/"/>
     
     <category term="插件" scheme="https://dgjunglep.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
     
@@ -208,7 +208,7 @@
     <link href="https://dgjunglep.github.io/2023/04/13/100dayscode-15/"/>
     <id>https://dgjunglep.github.io/2023/04/13/100dayscode-15/</id>
     <published>2023-04-13T23:54:58.000Z</published>
-    <updated>2023-05-10T23:40:12.460Z</updated>
+    <updated>2023-05-21T02:23:34.124Z</updated>
     
     
       
@@ -229,7 +229,7 @@
     
     <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
     
-    <category term="mybatis" scheme="https://dgjunglep.github.io/tags/mybatis/"/>
+    <category term="Mybatis" scheme="https://dgjunglep.github.io/tags/Mybatis/"/>
     
     <category term="插件" scheme="https://dgjunglep.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
     
@@ -240,7 +240,7 @@
     <link href="https://dgjunglep.github.io/2023/04/12/100dayscode-14/"/>
     <id>https://dgjunglep.github.io/2023/04/12/100dayscode-14/</id>
     <published>2023-04-12T22:05:58.000Z</published>
-    <updated>2023-05-10T23:40:12.460Z</updated>
+    <updated>2023-05-21T02:23:34.124Z</updated>
     
     
       
@@ -261,7 +261,7 @@
     
     <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
     
-    <category term="mybatis" scheme="https://dgjunglep.github.io/tags/mybatis/"/>
+    <category term="Mybatis" scheme="https://dgjunglep.github.io/tags/Mybatis/"/>
     
     <category term="插件" scheme="https://dgjunglep.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
     
@@ -272,7 +272,7 @@
     <link href="https://dgjunglep.github.io/2023/04/11/100dayscode-13/"/>
     <id>https://dgjunglep.github.io/2023/04/11/100dayscode-13/</id>
     <published>2023-04-11T21:17:59.000Z</published>
-    <updated>2023-05-10T23:40:12.460Z</updated>
+    <updated>2023-05-21T02:23:34.124Z</updated>
     
     
       
@@ -291,7 +291,7 @@
     
     <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
     
-    <category term="mybatis" scheme="https://dgjunglep.github.io/tags/mybatis/"/>
+    <category term="Mybatis" scheme="https://dgjunglep.github.io/tags/Mybatis/"/>
     
     <category term="插件" scheme="https://dgjunglep.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
     
@@ -302,7 +302,7 @@
     <link href="https://dgjunglep.github.io/2023/04/10/100dayscode-12/"/>
     <id>https://dgjunglep.github.io/2023/04/10/100dayscode-12/</id>
     <published>2023-04-10T11:36:19.000Z</published>
-    <updated>2023-05-10T23:40:12.460Z</updated>
+    <updated>2023-05-21T02:23:34.124Z</updated>
     
     
       
@@ -323,7 +323,7 @@
     
     <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
     
-    <category term="rxjava" scheme="https://dgjunglep.github.io/tags/rxjava/"/>
+    <category term="RxJava" scheme="https://dgjunglep.github.io/tags/RxJava/"/>
     
   </entry>
   
@@ -332,7 +332,7 @@
     <link href="https://dgjunglep.github.io/2023/04/09/100dayscode-11/"/>
     <id>https://dgjunglep.github.io/2023/04/09/100dayscode-11/</id>
     <published>2023-04-09T11:36:17.000Z</published>
-    <updated>2023-05-10T23:40:12.460Z</updated>
+    <updated>2023-05-21T02:23:34.124Z</updated>
     
     
       
@@ -350,11 +350,11 @@
     
     <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
     
-    <category term="rxjava" scheme="https://dgjunglep.github.io/tags/rxjava/"/>
+    <category term="RxJava" scheme="https://dgjunglep.github.io/tags/RxJava/"/>
     
     <category term="实践" scheme="https://dgjunglep.github.io/tags/%E5%AE%9E%E8%B7%B5/"/>
     
-    <category term="jclient" scheme="https://dgjunglep.github.io/tags/jclient/"/>
+    <category term="JClient" scheme="https://dgjunglep.github.io/tags/JClient/"/>
     
   </entry>
   
@@ -363,7 +363,7 @@
     <link href="https://dgjunglep.github.io/2023/04/08/100dayscode-10/"/>
     <id>https://dgjunglep.github.io/2023/04/08/100dayscode-10/</id>
     <published>2023-04-08T11:36:12.000Z</published>
-    <updated>2023-05-10T23:40:12.460Z</updated>
+    <updated>2023-05-21T02:23:34.124Z</updated>
     
     
       
@@ -384,11 +384,11 @@
     
     <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
     
-    <category term="rxjava" scheme="https://dgjunglep.github.io/tags/rxjava/"/>
+    <category term="RxJava" scheme="https://dgjunglep.github.io/tags/RxJava/"/>
     
     <category term="实践" scheme="https://dgjunglep.github.io/tags/%E5%AE%9E%E8%B7%B5/"/>
     
-    <category term="jclient" scheme="https://dgjunglep.github.io/tags/jclient/"/>
+    <category term="JClient" scheme="https://dgjunglep.github.io/tags/JClient/"/>
     
   </entry>
   
@@ -397,7 +397,7 @@
     <link href="https://dgjunglep.github.io/2023/04/07/100dayscode-9/"/>
     <id>https://dgjunglep.github.io/2023/04/07/100dayscode-9/</id>
     <published>2023-04-07T22:29:35.000Z</published>
-    <updated>2023-05-10T23:40:12.460Z</updated>
+    <updated>2023-05-21T02:23:34.124Z</updated>
     
     
       
@@ -418,7 +418,7 @@
     
     <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
     
-    <category term="rxjava" scheme="https://dgjunglep.github.io/tags/rxjava/"/>
+    <category term="RxJava" scheme="https://dgjunglep.github.io/tags/RxJava/"/>
     
   </entry>
   
@@ -427,7 +427,7 @@
     <link href="https://dgjunglep.github.io/2023/04/06/100dayscode-8/"/>
     <id>https://dgjunglep.github.io/2023/04/06/100dayscode-8/</id>
     <published>2023-04-06T22:01:55.000Z</published>
-    <updated>2023-05-10T23:40:12.460Z</updated>
+    <updated>2023-05-21T02:23:34.124Z</updated>
     
     
       
@@ -448,7 +448,7 @@
     
     <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
     
-    <category term="rxjava" scheme="https://dgjunglep.github.io/tags/rxjava/"/>
+    <category term="RxJava" scheme="https://dgjunglep.github.io/tags/RxJava/"/>
     
   </entry>
   
@@ -457,7 +457,7 @@
     <link href="https://dgjunglep.github.io/2023/04/05/100dayscode-7/"/>
     <id>https://dgjunglep.github.io/2023/04/05/100dayscode-7/</id>
     <published>2023-04-05T21:27:31.000Z</published>
-    <updated>2023-05-10T23:40:12.460Z</updated>
+    <updated>2023-05-21T02:23:34.124Z</updated>
     
     
       
@@ -478,7 +478,7 @@
     
     <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
     
-    <category term="rxjava" scheme="https://dgjunglep.github.io/tags/rxjava/"/>
+    <category term="RxJava" scheme="https://dgjunglep.github.io/tags/RxJava/"/>
     
   </entry>
   
@@ -487,7 +487,7 @@
     <link href="https://dgjunglep.github.io/2023/04/04/100dayscode-6/"/>
     <id>https://dgjunglep.github.io/2023/04/04/100dayscode-6/</id>
     <published>2023-04-04T22:07:26.000Z</published>
-    <updated>2023-05-10T23:40:12.460Z</updated>
+    <updated>2023-05-21T02:23:34.124Z</updated>
     
     
       
@@ -507,7 +507,7 @@
     
     <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
     
-    <category term="rxjava" scheme="https://dgjunglep.github.io/tags/rxjava/"/>
+    <category term="RxJava" scheme="https://dgjunglep.github.io/tags/RxJava/"/>
     
   </entry>
   
@@ -516,7 +516,7 @@
     <link href="https://dgjunglep.github.io/2023/04/03/100dayscode-5/"/>
     <id>https://dgjunglep.github.io/2023/04/03/100dayscode-5/</id>
     <published>2023-04-03T21:03:08.000Z</published>
-    <updated>2023-05-10T23:40:12.460Z</updated>
+    <updated>2023-05-21T02:23:34.124Z</updated>
     
     
       
@@ -537,7 +537,7 @@
     
     <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
     
-    <category term="rxjava" scheme="https://dgjunglep.github.io/tags/rxjava/"/>
+    <category term="RxJava" scheme="https://dgjunglep.github.io/tags/RxJava/"/>
     
   </entry>
   
@@ -546,7 +546,7 @@
     <link href="https://dgjunglep.github.io/2023/04/02/100dayscode-4/"/>
     <id>https://dgjunglep.github.io/2023/04/02/100dayscode-4/</id>
     <published>2023-04-02T21:01:05.000Z</published>
-    <updated>2023-05-10T23:40:12.460Z</updated>
+    <updated>2023-05-21T02:23:34.124Z</updated>
     
     
       
@@ -566,7 +566,7 @@
     
     <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
     
-    <category term="rxjava" scheme="https://dgjunglep.github.io/tags/rxjava/"/>
+    <category term="RxJava" scheme="https://dgjunglep.github.io/tags/RxJava/"/>
     
   </entry>
   
@@ -575,7 +575,7 @@
     <link href="https://dgjunglep.github.io/2023/04/01/100dayscode-3/"/>
     <id>https://dgjunglep.github.io/2023/04/01/100dayscode-3/</id>
     <published>2023-04-01T21:27:52.000Z</published>
-    <updated>2023-05-10T23:40:12.460Z</updated>
+    <updated>2023-05-21T02:23:34.124Z</updated>
     
     
       
@@ -594,7 +594,7 @@
     
     <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
     
-    <category term="rxjava" scheme="https://dgjunglep.github.io/tags/rxjava/"/>
+    <category term="RxJava" scheme="https://dgjunglep.github.io/tags/RxJava/"/>
     
   </entry>
   
@@ -603,7 +603,7 @@
     <link href="https://dgjunglep.github.io/2023/03/31/100dayscode-2/"/>
     <id>https://dgjunglep.github.io/2023/03/31/100dayscode-2/</id>
     <published>2023-03-31T22:17:04.000Z</published>
-    <updated>2023-05-10T23:40:12.460Z</updated>
+    <updated>2023-05-21T02:23:34.124Z</updated>
     
     
       
@@ -622,7 +622,7 @@
     
     <category term="挑战" scheme="https://dgjunglep.github.io/tags/%E6%8C%91%E6%88%98/"/>
     
-    <category term="rxjava" scheme="https://dgjunglep.github.io/tags/rxjava/"/>
+    <category term="RxJava" scheme="https://dgjunglep.github.io/tags/RxJava/"/>
     
     <category term="小知识" scheme="https://dgjunglep.github.io/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
     

@@ -20,9 +20,9 @@
       
         <tags>
             
-            <tag> spi </tag>
+            <tag> SPI </tag>
             
-            <tag> dubbo </tag>
+            <tag> Dubbo </tag>
             
         </tags>
       
@@ -49,11 +49,11 @@
             
             <tag> 挑战 </tag>
             
-            <tag> dubbo </tag>
+            <tag> Dubbo </tag>
             
-            <tag> rpc </tag>
+            <tag> RPC </tag>
             
-            <tag> demo </tag>
+            <tag> Demo </tag>
             
         </tags>
       
@@ -80,9 +80,9 @@
             
             <tag> 挑战 </tag>
             
-            <tag> spi </tag>
+            <tag> SPI </tag>
             
-            <tag> spring </tag>
+            <tag> Spring </tag>
             
         </tags>
       
@@ -109,13 +109,13 @@
             
             <tag> 挑战 </tag>
             
-            <tag> spi </tag>
+            <tag> SPI </tag>
             
-            <tag> java </tag>
+            <tag> Java </tag>
             
             <tag> 类加载器 </tag>
             
-            <tag> jvm </tag>
+            <tag> JVM </tag>
             
         </tags>
       
@@ -142,9 +142,9 @@
             
             <tag> 挑战 </tag>
             
-            <tag> spi </tag>
+            <tag> SPI </tag>
             
-            <tag> java </tag>
+            <tag> Java </tag>
             
         </tags>
       
@@ -171,7 +171,7 @@
             
             <tag> 挑战 </tag>
             
-            <tag> mybatis </tag>
+            <tag> Mybatis </tag>
             
             <tag> 插件 </tag>
             
@@ -200,7 +200,7 @@
             
             <tag> 挑战 </tag>
             
-            <tag> mybatis </tag>
+            <tag> Mybatis </tag>
             
             <tag> 插件 </tag>
             
@@ -229,7 +229,7 @@
             
             <tag> 挑战 </tag>
             
-            <tag> mybatis </tag>
+            <tag> Mybatis </tag>
             
             <tag> 插件 </tag>
             
@@ -258,7 +258,7 @@
             
             <tag> 挑战 </tag>
             
-            <tag> mybatis </tag>
+            <tag> Mybatis </tag>
             
             <tag> 插件 </tag>
             
@@ -287,7 +287,7 @@
             
             <tag> 挑战 </tag>
             
-            <tag> rxjava </tag>
+            <tag> RxJava </tag>
             
         </tags>
       
@@ -314,11 +314,11 @@
             
             <tag> 挑战 </tag>
             
-            <tag> rxjava </tag>
+            <tag> RxJava </tag>
             
             <tag> 实践 </tag>
             
-            <tag> jclient </tag>
+            <tag> JClient </tag>
             
         </tags>
       
@@ -345,11 +345,11 @@
             
             <tag> 挑战 </tag>
             
-            <tag> rxjava </tag>
+            <tag> RxJava </tag>
             
             <tag> 实践 </tag>
             
-            <tag> jclient </tag>
+            <tag> JClient </tag>
             
         </tags>
       
@@ -376,7 +376,7 @@
             
             <tag> 挑战 </tag>
             
-            <tag> rxjava </tag>
+            <tag> RxJava </tag>
             
         </tags>
       
@@ -403,7 +403,7 @@
             
             <tag> 挑战 </tag>
             
-            <tag> rxjava </tag>
+            <tag> RxJava </tag>
             
         </tags>
       
@@ -430,7 +430,7 @@
             
             <tag> 挑战 </tag>
             
-            <tag> rxjava </tag>
+            <tag> RxJava </tag>
             
         </tags>
       
@@ -457,7 +457,7 @@
             
             <tag> 挑战 </tag>
             
-            <tag> rxjava </tag>
+            <tag> RxJava </tag>
             
         </tags>
       
@@ -484,7 +484,7 @@
             
             <tag> 挑战 </tag>
             
-            <tag> rxjava </tag>
+            <tag> RxJava </tag>
             
         </tags>
       
@@ -511,7 +511,7 @@
             
             <tag> 挑战 </tag>
             
-            <tag> rxjava </tag>
+            <tag> RxJava </tag>
             
         </tags>
       
@@ -538,7 +538,7 @@
             
             <tag> 挑战 </tag>
             
-            <tag> rxjava </tag>
+            <tag> RxJava </tag>
             
         </tags>
       
@@ -565,7 +565,7 @@
             
             <tag> 挑战 </tag>
             
-            <tag> rxjava </tag>
+            <tag> RxJava </tag>
             
             <tag> 小知识 </tag>
             
@@ -594,7 +594,7 @@
             
             <tag> 挑战 </tag>
             
-            <tag> rxjava </tag>
+            <tag> RxJava </tag>
             
         </tags>
       
