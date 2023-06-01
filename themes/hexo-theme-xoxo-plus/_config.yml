@@ -73,20 +73,20 @@ links:
   Fooying(主题作者): https://www.fooying.com
 # project
 projects:
-  # hexo-theme-xoxo-plus:
-  #   url: https://github.com/fooying/hexo-theme-xoxo-plus
-  #   descript: a hexo theme
+  HomeWorker:
+    url: https://github.com/dgjungleP/HomeWorker
+    descript: 家庭管理工具
 # activitys
 activitys:
   100DaysCode(个人原因中断在20/100):
     date: 2023-03-30
     # url: https://ke.qq.com/course/342390?tuin=49018ed
     type: 挑战
-  SDUP:
+  SDUP(搁置，需要了解更多的项目知识):
     date: 2023-04-11
     # url: https://ke.qq.com/course/342390?tuin=49018ed
     type: 项目
-  小江家庭小程序:
+  小江家庭小程序(搁置，小程序开发有些许不一样):
     date: 2023-04-20
     # url: https://ke.qq.com/course/342390?tuin=49018ed
     type: 项目
