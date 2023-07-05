@@ -2,8 +2,8 @@
 <html lang="<%=config.language%>">
 <meta name="baidu-site-verification" content="codeva-gKi53Hb9Pb" />
 <%-partial('partials/head')%>
-
   <body>
+  <div id="particles-js" style="height: 100% ;z-index: -1; position: absolute;"></div>
     <div class="nav-container">
       <%-partial('partials/nav')%>
     </div>
@@ -24,5 +24,10 @@
         <!-- <%-partial('partials/analytics') %> -->
           <!-- <%-partial('partials/baidu_url_js_push') %> -->
   </body>
+  <script>
+    particlesJS.load('particles-js', '/particles.json', function() {
+     console.log('callback - particles.js config loaded');
+    });
+  </script>
 
 </html>
